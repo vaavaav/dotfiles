@@ -191,10 +191,15 @@ bindsym Print exec "flameshot gui"
 ## GAPS
 gaps inner 10
 gaps outer 0
-smart_gaps on
+# smart_gaps on
 
 # Disable title bar
 for_window [class="^.*"] border pixel 1
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set +25%
+bindsym XF86MonBrightnessDown exec brightnessctl set 25%-
+
