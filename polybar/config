@@ -305,14 +305,18 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = %{F#2ACF06}%{F-}
-ramp-1 = %{F#2ACF06}%{F-}
-ramp-2 = %{F#2ACF06}%{F-}
+
+ramp-0 = %{F#08B3E5}%{F-}
+ramp-1 = %{F#14C9CB}%{F-}
+ramp-2 = %{F#14C9CB}%{F-}
 ramp-3 = %{F#2ACF06}%{F-}
-ramp-4 = %{F#67BF16}%{F-}
-ramp-5 = %{F#67BF16}%{F-}
-ramp-6 = %{F#D4B401}%{F-}
-ramp-7 = %{F#D60000}%{F-}
+ramp-4 = %{F#2ACF06}%{F-}
+ramp-5 = %{F#2ACF06}%{F-}
+ramp-6 = %{F#2ACF06}%{F-}
+ramp-7 = %{F#67BF16}%{F-}
+ramp-8 = %{F#67BF16}%{F-}
+ramp-9 = %{F#D4B401}%{F-}
+ramp-10 = %{F#D60000}%{F-}
 
 ramp-foreground = ${colors.foreground-alt}
 
