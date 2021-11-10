@@ -105,3 +105,10 @@ alias nfeh="feh --bg-fill --randomize ~/.wallpapers/* &"
 
 # Stack
 export PATH="$HOME/.local/bin:$PATH"
+
+# Anaconda
+# export PATH="/opt/anaconda/bin:$PATH"
+
+
+# Anti-Aliasing font
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dvpuml.fontname=\"SF Pro Text\" -Dvpuml.fontsize=15"
