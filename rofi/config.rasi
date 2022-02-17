@@ -1,7 +1,0 @@
-configuration { 
-	font: "SF Pro Text 13";
-	show-icons: true;
-}
-
-//@theme "/usr/share/rofi/themes/Pop-Dark.rasi"
-@theme "/usr/share/rofi/themes/vaavaav.rasi"
