@@ -57,7 +57,7 @@ font-1 = Font Awesome 5 Pro Solid:pixelsize=10;2
 
 modules-left = i3
 modules-center = xwindow
-modules-right = pulseaudio sep filesystem memory cpu temperature battery sep wlan eth sep date
+modules-right = pulseaudio sep xkeyboard sep filesystem memory cpu temperature battery sep wlan eth sep date
 
 tray-position = left
 tray-padding = 2
@@ -170,7 +170,7 @@ label = %percentage_used:2%%
 
 [module/wlan]
 type = internal/network
-interface = wlp4s0
+interface = wlan0
 interval = 3.0
 
 format-connected = <label-connected> <ramp-signal> 
