@@ -98,14 +98,14 @@
      vimPlugins.rainbow_parentheses-vim
      vimPlugins.molokai
      vimPlugins.YouCompleteMe
-     
-
+      
+     flameshot
      wget
      firefox
      vscode
      xterm
      picom
-     dmenu
+     rofi
      ghc
      haskellPackages.xmonad
      haskellPackages.xmobar
