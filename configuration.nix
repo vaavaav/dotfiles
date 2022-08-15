@@ -48,7 +48,8 @@
 		enable = true;
 		vSync = true;
  		opacityRules = [
-			"80:class_g = 'Alacritty'"
+			"95:class_g = 'Alacritty' && focused"
+			"90:class_g = 'Alacritty' && !focused"
  		];
           };
 	  xserver = { 
@@ -93,7 +94,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     vim 
+     vimPlugins.rainbow_parentheses-vim
+     vimPlugins.molokai
+     vimPlugins.YouCompleteMe
+     
+
      wget
      firefox
      vscode
@@ -118,6 +124,7 @@
 
   fonts.fonts = with pkgs; [
      iosevka
+     noto-fonts-emoji
   ];
  
   programs = {
