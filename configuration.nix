@@ -140,6 +140,10 @@
 		ohMyZsh.plugins = [ "git" ];
 		autosuggestions.enable = true;
 		syntaxHighlighting.enable = true;
+		shellAliases = {
+			kys = "poweroff";
+			pls = "sudo";
+		};
 	};
   };
 
