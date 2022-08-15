@@ -1,6 +1,6 @@
 # Where to store each configuration file?
 
-Note for self: use soft (symbolic) links on the configuration files.
+Note for self: use hard links on the configuration files.
 
 Edit: 15/08/2022
 
