@@ -54,8 +54,3 @@ According to https://xmonad.org/TUTORIAL.html :
 2. `~/.xmonad/xmonad.hs`
 3. `$XMONAD_CONFIG_DIR/xmonad.hs`
 
-## Zsh
-
-According to https://wiki.archlinux.org/title/zsh :
-
-`~/.zshrc`
