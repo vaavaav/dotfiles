@@ -13,13 +13,6 @@ According to https://github.com/alacritty/alacritty :
 3. `$HOME/.config/alacritty/alacritty.yml`
 4. `$HOME/.alacritty.yml`
 
-## Picom
-
-According to https://wiki.archlinux.org/title/Picom :
-
-1. `~/.config/picom/picom.conf`
-2. `~/.config/picom.conf`
-
 ## Rofi
 
 According to https://github.com/davatorium/rofi :

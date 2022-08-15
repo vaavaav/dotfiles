@@ -46,6 +46,10 @@
   services = {
           picom = {
 		enable = true;
+		vSync = true;
+ 		opacityRules = [
+			"80:class_g = 'Alacritty'"
+ 		];
           };
 	  xserver = { 
 		  enable = true;
