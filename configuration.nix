@@ -118,9 +118,22 @@
      arandr
      nitrogen
      jdk11
+     spotify
+     discord
    ];
+ 
   
   nixpkgs.config.allowUnfree = true;
+  system.autoUpgrade.enable = true; 
+  
+  nix = {
+	settings.auto-optimise-store = true;
+	gc = {
+		automatic = true;
+		dates = "weekly";
+		options = "--delete-older-than 7d"
+	};
+  };
 
   fonts.fonts = with pkgs; [
      iosevka
@@ -146,6 +159,18 @@
 		};
 	};
   };
+
+  nixpkgs.overlays = [
+  	( self: super: {
+		discord = super.discord.overrideAttrs (
+			_: { src = builtins.fetchTarball {
+				url = "https://discord.com/api/download?platform=linux&format=tar.gz" ;
+			   };
+			}
+		);
+	})
+  ];
+			
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
