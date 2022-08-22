@@ -23,11 +23,13 @@
   # Vim configuration
   programs.vim = {
 	enable = true;
+	settings = {
+		number = true;
+		relativenumber = true;
+	};
 	extraConfig = ''
 		syntax on 
 		colorscheme molokai
-		set relativenumber
-                set number
 		set nocompatible
 		" slim cursor
 		set guicursor=i-ci:ver10-iCursor
