@@ -4,6 +4,9 @@
 
 { config, pkgs, ... }:
 
+let 
+   user="vaavaav";
+in
 {
  imports =
     [ # Include the results of the hardware scan.
@@ -84,7 +87,7 @@
   services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-   users.users.vaavaav = {
+   users.users.${user} = {
      isNormalUser = true;
      initialPassword = "password";
      shell = pkgs.zsh;
@@ -95,9 +98,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      vim 
-     vimPlugins.rainbow_parentheses-vim
-     vimPlugins.molokai
-     vimPlugins.YouCompleteMe
       
      flameshot
      wget
@@ -170,7 +170,7 @@
 		);
 	})
   ];
-			
+ 
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
