@@ -98,12 +98,10 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      vim 
-      
      flameshot
      wget
      firefox
      vscode
-     xterm
      picom
      rofi
      ghc
@@ -116,8 +114,7 @@ in
      zsh
      oh-my-zsh
      arandr
-     nitrogen
-     jdk11
+     jdk
      spotify
      discord
    ];
