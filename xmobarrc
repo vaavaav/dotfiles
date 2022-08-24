@@ -17,6 +17,15 @@ Config { overrideRedirect = False
                         , "--high"  , "red"
                         , "--normal", "green"
                         ] 10
+		    , Run Battery [
+			"-t", "<acstatus>: <left>% - <timeleft>",
+	       "--",
+	       --"-c", "charge_full",
+	       "-O", "AC",
+	       "-o", "Bat",
+	       "-h", "green",
+	       "-l", "red"
+			] 10
                     , Run Alsa "default" "Master"
                         [ "--template", "<volumestatus>"
                         , "--suffix"  , "True"
@@ -30,6 +39,6 @@ Config { overrideRedirect = False
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%XMonadLog% }{ %alsa:default:Master% | %cpu% | %memory% * %swap% | %EGPF% | %date% "
+       , template = "%XMonadLog% }{ %alsa:default:Master% | %battery% | %cpu% | %memory% * %swap% | %EGPF% | %date% "
        }
 

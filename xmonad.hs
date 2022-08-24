@@ -28,5 +28,12 @@ myKeys = [ ("M-<Return>", spawn myTerminal)
 	 , ("M-d", spawn "rofi -show drun")
          , ("M-S-q", kill1)
 	 , ("<Print>", spawn "flameshot gui")
+	 , ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 5%-")
+	 , ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 5%+")
+	 , ("<XF86AudioMute>", spawn "amixer set Master toggle")
+	 , ("<XF86MonBrightnessUp>", spawn "brightnessctl set +10%")
+	 , ("<XF86MonBrightnessDown>", spawn "brightnessctl set 10%-")
+	 , ("<XF86AudioMicMute>", spawn "amixer set Capture toggle")
+
          ] 
 

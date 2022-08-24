@@ -4,14 +4,11 @@
 
 { config, pkgs, ... }:
 
-let 
-   user="vaavaav";
-in
 {
- imports =
+  imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+    ./hardware-configuration.nix
+  ];
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -35,39 +32,36 @@ in
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-   i18n.defaultLocale = "en_US.UTF-8";
-   console = {
-     font = "Lat2-Terminus16";
-     keyMap = "us";
+  i18n.defaultLocale = "en_US.UTF-8";
+  console = {
+    font = "iosevka";
+    keyMap = "us";
    #  useXkbConfig = true; # use xkbOptions in tty.
+ };
+
+ services = {
+   picom = {
+     enable = true;
+     vSync = true;
+     backend = "glx";
+     opacityRules = [
+       "95:class_g = 'Alacritty' && focused"
+       "90:class_g = 'Alacritty' && !focused"
+     ];
    };
+   xserver = { 
+     enable = true;
+     displayManager = {
+       lightdm.enable = true;
+       defaultSession = "none+xmonad";
+     };
+     windowManager.xmonad = {
+       enable = true;
+       enableContribAndExtras = true;
+     };
+   };
+ };
 
-  # Enable the X11 windowing system.
-
-
-# Enable the Plasma 5 Desktop Environment.
-  services = {
-          picom = {
-		enable = true;
-		vSync = true;
- 		opacityRules = [
-			"95:class_g = 'Alacritty' && focused"
-			"90:class_g = 'Alacritty' && !focused"
- 		];
-          };
-	  xserver = { 
-		  enable = true;
-		  displayManager = {
-			  lightdm.enable = true;
-			  defaultSession = "none+xmonad";
-		  };
-		  windowManager.xmonad = {
-                     enable = true;
-                     enableContribAndExtras = true;
-                  };
-	  };
-  };
-  
 
   # Configure keymap in X11
   services.xserver.layout = "us";
@@ -86,40 +80,28 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-   users.users.${user} = {
-     isNormalUser = true;
-     initialPassword = "password";
-     shell = pkgs.zsh;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-   };
+  users.users.vaavaav = {
+    isNormalUser = true;
+    initialPassword = "password";
+    shell = pkgs.zsh;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim 
-     flameshot
-     wget
-     firefox
-     vscode
-     picom
-     rofi
-     ghc
-     haskellPackages.xmonad
-     haskellPackages.xmobar
-     haskellPackages.xmonad-contrib
-     git
-     stack
-     alacritty
-     zsh
-     oh-my-zsh
-     arandr
-     jdk
-     spotify
-     discord
-   ];
- 
-  
+    vim 
+    wget
+    git
+    arandr
+    zsh
+    haskellPackages.xmonad
+    haskellPackages.xmobar
+    haskellPackages.xmonad-contrib
+    xterm
+    brightnessctl
+  ];
+
   nixpkgs.config.allowUnfree = true;
   system.autoUpgrade.enable = true; 
   
@@ -136,38 +118,19 @@ in
      iosevka
      noto-fonts-emoji
   ];
+
+  fonts.fontconfig.defaultFonts = {
+    monospace = [
+      "iosevka"
+    ];
+  };
  
   programs = {
   	vim = {
 		defaultEditor = true;
 	};
-
-	zsh = {
-		enable = true;
-		enableCompletion = true;
-		ohMyZsh.theme = "agnoster";
-		ohMyZsh.enable = true;
-		ohMyZsh.plugins = [ "git" ];
-		autosuggestions.enable = true;
-		syntaxHighlighting.enable = true;
-		shellAliases = {
-			kys = "poweroff";
-			pls = "sudo";
-		};
-	};
   };
 
-  nixpkgs.overlays = [
-  	( self: super: {
-		discord = super.discord.overrideAttrs (
-			_: { src = builtins.fetchTarball {
-				url = "https://discord.com/api/download?platform=linux&format=tar.gz" ;
-			   };
-			}
-		);
-	})
-  ];
- 
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

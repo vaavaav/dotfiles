@@ -16,8 +16,22 @@
   # changes in each release.
   home.stateVersion = "22.05";
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  home.packages = with pkgs; [
+    flameshot
+    vscode
+    picom
+    firefox
+    rofi
+    jdk
+    ghc
+    stack
+    alacritty
+    oh-my-zsh
+    spotify
+    discord
+  ];
+
+  nixpkgs.config.allowUnfree = true;
 
   # Background
   services.random-background = {
@@ -26,67 +40,23 @@
     imageDirectory = "%h/.wallpapers";
   };
 
-  # Vim configuration
-  programs.vim = {
-	enable = true;
-	settings = {
-		number = true;
-		relativenumber = true;
-	};
-	extraConfig = ''
-		syntax on 
-		colorscheme molokai
-		set nocompatible
-		" slim cursor
-		set guicursor=i-ci:ver10-iCursor
-                " rainbow parentheses
-                let g:rainbow_active = 1
-		'';
-	plugins = [
-          pkgs.vimPlugins.YouCompleteMe
-          pkgs.vimPlugins.molokai
-          pkgs.vimPlugins.rainbow_parentheses-vim
-        ];
-      }; 
+  programs.home-manager.enable = true;
 
-      programs.alacritty = {
-        enable = true;
-        settings = {
-          font = {
-            size = 12.0;
-            normal = {
-              family = "iosevka";
-              style = "Medium";
-            };
-          };
-          colors = {
-            primary = {
-              background = "0x1d1f21";
-              foreground = "0xc5c8c6";
-            };
-            normal = { 
-              black =   "0x1c1e26";
-              red =     "0xe95678";
-              green =   "0x29d398"; 
-              yellow =  "0xfac29a";
-              blue =    "0x26bbd9";
-              magenta = "0xee64ac";
-              cyan =    "0x59e1e3";
-              white =   "0xcbced0";
-            };
-            bright = {
-              black =   "0x6f6f70";
-              red =     "0xe95678";
-              green =   "0x29d398";
-              yellow =  "0xfac29a";
-              blue =    "0x26bbd9";
-              magenta = "0xee64ac";
-              cyan =    "0x59e1e3";
-              white =   "0xe3e6ee";
-            };
-         };
-       };
-     };
+  nixpkgs.overlays = [
+    ( self: super: {
+      discord = super.discord.overrideAttrs (
+        _: { src = builtins.fetchTarball {
+          url = "https://discord.com/api/download?platform=linux&format=tar.gz" ;
+        };
+      }
+      );
+    })
+  ];
 
-
-            }
+  imports = [
+    ./modules/git.nix
+    ./modules/zsh.nix
+    ./modules/alacritty.nix
+    ./modules/vim.nix
+  ];
+}
