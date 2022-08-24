@@ -5,12 +5,6 @@ Note for self: use hard links on the configuration files.
 Edit: 15/08/2022
 
 
-## Rofi
-
-According to https://github.com/davatorium/rofi :
-
-`~/.config/rofi/config.rasi`
-
 ## XMobar
 
 According to https://codeberg.org/xmobar/xmobar :

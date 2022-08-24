@@ -4,6 +4,7 @@ import XMonad.Util.EZConfig
 import XMonad.Util.Ungrab
 
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Layout.Spacing
 
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.StatusBar
@@ -22,10 +23,11 @@ myConfig = def
     { terminal = myTerminal 
     , modMask = mod4Mask
     , normalBorderColor = "#cccccc"
+    , layoutHook = spacingWithEdge 5 $ layoutHook def
     }
 
 myKeys = [ ("M-<Return>", spawn myTerminal)
-	 , ("M-d", spawn "rofi -show drun")
+	 , ("M-d", spawn "rofi -show drun -icon-theme \"Papirus\" -show-icons")
          , ("M-S-q", kill1)
 	 , ("<Print>", spawn "flameshot gui")
 	 , ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 5%-")
