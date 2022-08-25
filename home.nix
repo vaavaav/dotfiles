@@ -29,6 +29,7 @@
     oh-my-zsh
     spotify
     discord
+    openvpn
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -58,5 +59,6 @@
     ./modules/zsh.nix
     ./modules/alacritty.nix
     ./modules/vim.nix
+    ./modules/xmobar.nix
   ];
 }

@@ -51,6 +51,8 @@
    };
    xserver = { 
      enable = true;
+     layout = "us";
+     xkbVariant = "intl";
      displayManager = {
        lightdm.enable = true;
        defaultSession = "none+xmonad";
@@ -61,14 +63,6 @@
      };
    };
  };
-
-
-  # Configure keymap in X11
-  services.xserver.layout = "us";
-  # services.xserver.xkbOptions = {
-  #   "eurosign:e";
-  #   "caps:escape" # map caps to escape.
-  # };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -100,6 +94,8 @@
     haskellPackages.xmonad-contrib
     xterm
     brightnessctl
+    unzip
+    font-manager
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -117,6 +113,8 @@
   fonts.fonts = with pkgs; [
      iosevka
      noto-fonts-emoji
+     font-awesome
+     font-awesome_5
   ];
 
   fonts.fontconfig.defaultFonts = {
@@ -130,7 +128,6 @@
 		defaultEditor = true;
 	};
   };
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
