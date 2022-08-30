@@ -80,6 +80,7 @@
     brightnessctl
     unzip
     font-manager
+    neofetch
   ];
 
   nixpkgs.config.allowUnfree = true;
