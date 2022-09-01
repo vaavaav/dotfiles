@@ -41,11 +41,11 @@
       displayManager = {
         lightdm.enable = true;
         lightdm.background = "/etc/lightdm/greeter.png"; # custom background for lightdm
-        defaultSession = "none+xmonad";
+        defaultSession = "none+i3";
       };
-      windowManager.xmonad = {
+      windowManager.i3 = {
         enable = true;
-        enableContribAndExtras = true;
+        package = pkgs.i3-gaps;
       };
     };
   };
@@ -73,10 +73,7 @@
     git
     arandr
     zsh
-    haskellPackages.xmonad
-    haskellPackages.xmobar
-    haskellPackages.xmonad-contrib
-    xterm
+    i3-gaps
     brightnessctl
     unzip
     font-manager
@@ -109,6 +106,7 @@
 
   programs = {
     vim.defaultEditor = true; 
+    nm-applet.enable = true;
   };
 
   # Enable the OpenSSH daemon.

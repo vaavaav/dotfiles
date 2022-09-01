@@ -22,6 +22,9 @@
     spotify
     discord
     openvpn
+    gcc
+    cmake
+    polybar
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -51,6 +54,6 @@
     ./modules/zsh.nix
     ./modules/alacritty.nix
     ./modules/vim.nix
-    ./modules/xmobar.nix
+    ./modules/polybar.nix
   ];
 }
