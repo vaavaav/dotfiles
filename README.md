@@ -7,4 +7,4 @@ Note for self: use hard links on the configuration files.
 
 `modules/` -> `~/.config/nixpkgs/modules/`
 
-`xmonad.hs` -> `~/.config/xmonad/xmonad.hs`
+`i3/config` -> `~/.config/i3/config`
