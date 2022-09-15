@@ -78,6 +78,7 @@
     unzip
     font-manager
     neofetch
+    nm-tray
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -98,6 +99,8 @@
       noto-fonts-emoji
       font-awesome
       font-awesome_5
+      fantasque-sans-mono
+      mononoki
     ];
     fontconfig.defaultFonts = {
       monospace = [ "iosevka" ];

@@ -25,6 +25,7 @@
     gcc
     cmake
     polybar
+    xournalpp
   ];
 
   nixpkgs.config.allowUnfree = true;
