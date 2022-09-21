@@ -12,7 +12,6 @@
     flameshot
     vscode
     picom
-    firefox
     rofi
     jdk
     ghc
@@ -26,6 +25,7 @@
     cmake
     polybar
     xournalpp
+    texlive.combined.scheme-full
   ];
 
   nixpkgs.config.allowUnfree = true;

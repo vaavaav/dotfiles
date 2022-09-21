@@ -79,6 +79,7 @@
     font-manager
     neofetch
     nm-tray
+    firefox
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -101,6 +102,7 @@
       font-awesome_5
       fantasque-sans-mono
       mononoki
+      google-fonts
     ];
     fontconfig.defaultFonts = {
       monospace = [ "iosevka" ];
