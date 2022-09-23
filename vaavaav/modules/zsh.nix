@@ -9,6 +9,7 @@
     enableSyntaxHighlighting = true;
     shellAliases = {
       kys = "poweroff";
+      rrb = "systemctl restart --user random-background"; # restart random background
     };
   };
 }
