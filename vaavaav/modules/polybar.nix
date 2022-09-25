@@ -1,5 +1,13 @@
 let mybar = "main"; in
 {
+  nixpkgs.config = {
+    packageOverrides = pkgs: rec {
+      polybar = pkgs.polybar.override {
+        i3Support = true;
+      };
+    };
+  };
+
   services.polybar = {
     enable = true;
     script = "polybar ${mybar} &";
@@ -40,8 +48,8 @@ let mybar = "main"; in
         font-3 = "Font Awesome 5 Brands:pixelsize=12;2";
 
         modules-left = "i3"; 
-        modules-center = "xwindow";
-        modules-right = "pulseaudio sep xkeyboard sep memory cpu temperature battery sep wlan eth sep date";
+        modules-center = "date";
+        modules-right = "pulseaudio sep xkeyboard memory battery sep wlan eth";
 
         tray-position = "left";
         tray-padding = 2;
@@ -61,7 +69,6 @@ let mybar = "main"; in
         content = "|";
         content-foreground = "#555555";
       };
-
       "module/xkeyboard" = {
         type = "internal/xkeyboard";
         blacklist-0 = "num lock";
@@ -77,57 +84,35 @@ let mybar = "main"; in
       };
 
 
-      "module/filesystem" = {
-        type = "internal/fs";
-        interval = 25;
-
-        mount-0 = "/";
-
-        label-mounted = " %percentage_used%%"; 
-        label-unmounted = "%mountpoint% not mounted";
-        label-unmounted-foreground = "\${colors.foreground-alt}";
-      };
-
       "module/i3" = {
         type = "internal/i3";
         format = "<label-state> <label-mode>";
         index-sort = true;
         wrapping-scroll = false;
+        strip-wsnumbers = true;
 
         label-mode-padding = 2;
         label-mode-foreground = "#000";
         label-mode-background = "\${colors.primary}";
 
-     # focused = Active workspace on focused monitor
-     label-focused = "%index%";
-     label-focused-background = "\${colors.background-alt}";
-     label-focused-underline= "#110000";
-     label-focused-padding = 2;
+        label-focused = "%index%";
+        label-focused-background = "\${colors.background-alt}";
+        label-focused-underline= "#110000";
+        label-focused-padding = 2;
 
-     # unfocused = Inactive workspace on any monitor
-     label-unfocused = "%index%";
-     label-unfocused-padding = 2;
+        label-unfocused = "%index%";
+        label-unfocused-padding = 2;
 
-     # visible = Active workspace on unfocused monitor
-     label-visible = "%index%";
-     label-visible-background = "\${self.label-focused-background}";
-     label-visible-underline = "\${self.label-focused-underline}";
-     label-visible-padding = "\${self.label-focused-padding}";
+        label-visible = "%index%";
+        label-visible-background = "\${self.label-focused-background}";
+        label-visible-underline = "\${self.label-focused-underline}";
+        label-visible-padding = "\${self.label-focused-padding}";
 
-     # urgent = Workspace with urgency hint set
-     label-urgent = "%index%";
-     label-urgent-background = "\${colors.alert}";
-     label-urgent-padding = 2;
+        label-urgent = "%index%";
+        label-urgent-background = "\${colors.alert}";
+        label-urgent-padding = 2;
 
-   };
-
-   "module/cpu" = {
-     type = "internal/cpu";
-     interval = 2;
-     format-prefix = " ";
-     format-prefix-foreground = "\${colors.foreground-alt}";
-     label = "%percentage:2%%";
-   };
+      };
 
    "module/memory" = {
      type = "internal/memory";
@@ -244,34 +229,6 @@ let mybar = "main"; in
        animation-charging-0 = "";
        animation-charging-foreground = "#088F8F";
        animation-charging-framerate = 750;
-     };
-
-     "module/temperature" = {
-       type = "internal/temperature";
-       thermal-zone = 0;
-       warn-temperature = 60;
-
-       format = "<ramp> <label>";
-       format-warn = "<ramp> <label-warn>";
-
-       label = "%temperature-c%";
-       label-warn = "%temperature-c%";
-       label-warn-foreground = "\${colors.secondary}";
-
-
-       ramp-0 = "%{F#08B3E5}%{F-}";
-       ramp-1 = "%{F#14C9CB}%{F-}";
-       ramp-2 = "%{F#14C9CB}%{F-}";
-       ramp-3 = "%{F#2ACF06}%{F-}";
-       ramp-4 = "%{F#2ACF06}%{F-}";
-       ramp-5 = "%{F#2ACF06}%{F-}";
-       ramp-6 = "%{F#2ACF06}%{F-}";
-       ramp-7 = "%{F#67BF16}%{F-}";
-       ramp-8 = "%{F#67BF16}%{F-}";
-       ramp-9 = "%{F#D4B401}%{F-}";
-       ramp-10 = "%{F#D60000}%{F-}";
-
-       ramp-foreground = "\${colors.foreground-alt}";
      };
 
 
