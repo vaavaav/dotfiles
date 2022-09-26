@@ -30,7 +30,7 @@ let mybar = "main"; in
         background = "\${colors.background}";
         foreground = "\${colors.foreground}";
 
-        line-size = 2;
+        line-size = 3;
         line-color = "#fac29a";
 
         border-top-size = 6;
@@ -39,7 +39,7 @@ let mybar = "main"; in
         border-bottom-size = 0;
         border-color = "#00000000";
 
-        padding-left = 2;
+        padding-left = 0;
         padding-right = 5;
 
         module-margin-left = 0;
@@ -58,7 +58,6 @@ let mybar = "main"; in
         cursor-click = "pointer";
         cursor-scroll = "ns-resize";
       };
-
 
       "module/xwindow" = {
         type = "internal/xwindow";
@@ -80,9 +79,9 @@ let mybar = "main"; in
         layout-icon-default = "󰌓";
 
         label-indicator = "%icon%";
+        label-indicator-background = "#006bb3";
         indicator-icon-0 = "caps lock;;󰌎";
-
-        label-indicator-background = "\${colors.secondary}";
+        label-indicator-padding = 1;
       };
 
 
@@ -113,7 +112,6 @@ let mybar = "main"; in
         label-urgent = "%index%";
         label-urgent-background = "\${colors.alert}";
         label-urgent-padding = 2;
-
       };
 
    "module/memory" = {
@@ -160,16 +158,14 @@ let mybar = "main"; in
    "module/date" = {
      type = "internal/date";
      interval = 5;
+     format-prefix = "󰅐";
+     label = "%date% %time%";
 
      date = " %a, %d-%m-%Y";
      date-alt = " %d-%m-%Y";
 
      time = "%H:%M";
      time-alt = "%H:%M";
-
-     format-prefix = "󰅐";
-
-     label = "%date% %time%";
    };
 
    "module/pulseaudio" = {
@@ -185,7 +181,6 @@ let mybar = "main"; in
      ramp-volume-0 = "󰕿";
      ramp-volume-1 = "󰖀";
      ramp-volume-2 = "󰕾";
-
      };
 
 
@@ -234,7 +229,6 @@ let mybar = "main"; in
        animation-charging-foreground = "#00FFFF";
        animation-charging-framerate = 750;
      };
-
 
      "settings" = {
        screenchange-reload = true;
