@@ -76,7 +76,6 @@
     i3-gaps
     brightnessctl
     unzip
-    font-manager
     neofetch
     nm-tray
     firefox
@@ -103,6 +102,7 @@
       fantasque-sans-mono
       mononoki
       google-fonts
+      material-design-icons
     ];
     fontconfig.defaultFonts = {
       monospace = [ "iosevka" ];

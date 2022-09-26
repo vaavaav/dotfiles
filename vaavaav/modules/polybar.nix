@@ -24,8 +24,8 @@ let mybar = "main"; in
 
       "bar/${mybar}" = {
         width = "100%";
-        height = 30;
-        radius = "1.0";
+        height = 35;
+        radius = "0.0";
         fixed-center = false;
         background = "\${colors.background}";
         foreground = "\${colors.foreground}";
@@ -33,19 +33,20 @@ let mybar = "main"; in
         line-size = 2;
         line-color = "#fac29a";
 
-        border-size = 4;
+        border-top-size = 6;
+        border-left-size = 9;
+        border-right-size = 9;
+        border-bottom-size = 0;
         border-color = "#00000000";
 
-        padding-left = 0;
-        padding-right = 1;
+        padding-left = 2;
+        padding-right = 5;
 
         module-margin-left = 0;
-        module-margin-right = 1;
+        module-margin-right = 2;
 
         font-0 = "iosevka:style=bold:size=12;3";
-        font-1 = "Font Awesome 5 Free:pixelsize=12;2";
-        font-2 = "Font Awesome 5 Free Solid:pixelsize=12;2";
-        font-3 = "Font Awesome 5 Brands:pixelsize=12;2";
+        font-1 = "Material Design Icons:style=Regular:pixelsize=15;3";
 
         modules-left = "i3"; 
         modules-center = "date";
@@ -73,13 +74,14 @@ let mybar = "main"; in
         type = "internal/xkeyboard";
         blacklist-0 = "num lock";
 
-        format-prefix = " ";
-        format-prefix-foreground = "\${colors.foreground-alt}";
+        format = "<label-indicator> <label-layout>";
 
-        label-layout = "%layout%";
+        label-layout = "%icon% %layout%";
+        layout-icon-default = "󰌓";
 
-        label-indicator-padding = 2;
-        label-indicator-margin = 1;
+        label-indicator = "%icon%";
+        indicator-icon-0 = "caps lock;;󰌎";
+
         label-indicator-background = "\${colors.secondary}";
       };
 
@@ -96,8 +98,8 @@ let mybar = "main"; in
         label-mode-background = "\${colors.primary}";
 
         label-focused = "%index%";
-        label-focused-background = "\${colors.background-alt}";
-        label-focused-underline= "#110000";
+        label-focused-background = "#0d0d0d";
+        label-focused-underline= "#006bb3";
         label-focused-padding = 2;
 
         label-unfocused = "%index%";
@@ -117,8 +119,8 @@ let mybar = "main"; in
    "module/memory" = {
      type = "internal/memory";
      interval = 2;
-     format-prefix = " ";
-     format-prefix-foreground = "\${colors.foreground-alt}";
+     format-prefix = "󰍛 ";
+     format-prefix-foreground = "#F7DE3A";
      label = "%percentage_used:2%%";
    };
 
@@ -127,16 +129,20 @@ let mybar = "main"; in
      interface = "wlp0s20f0u2";
      interval = "3.0";
 
-     format-connected = "<label-connected> <ramp-signal>";
+     format-connected = "<ramp-signal> <label-connected>";
      label-connected = "%essid%";
 
-     format-disconnected = "%{F#565656k}%{F-}";
+     format-disconnected = "󰤮";
+     format-disconnected-foreground = "#565656";
 
-     ramp-signal-0 = "%{F#D60000}%{F-}";
-     ramp-signal-1 = "%{F#D4B401}%{F-}";
-     ramp-signal-2 = "%{F#C4D600}%{F-}";
-     ramp-signal-3 = "%{F#67BF16}%{F-}";
-     ramp-signal-4 = "%{F#2ACF06}%{F-}";
+     ramp-signal-0 = "󰤟";
+     ramp-signal-0-foreground = "#D60000";
+     ramp-signal-1 = "󰤢";
+     ramp-signal-1-foreground = "#D4B401";
+     ramp-signal-2 = "󰤥";
+     ramp-signal-2-foreground = "#C4D600";
+     ramp-signal-3 = "󰤨";
+     ramp-signal-3-foreground = "#67BF16";
    };
 
 
@@ -146,7 +152,7 @@ let mybar = "main"; in
      interface = "enp0s31f6";
      interval = 3.0;
 
-     format-connected-prefix = " ";
+     format-connected-prefix = "󰈀 ";
      format-connected-prefix-foreground = "\${colors.foreground-alt}";
      label-connected = "%local_ip%";
    };
@@ -161,7 +167,7 @@ let mybar = "main"; in
      time = "%H:%M";
      time-alt = "%H:%M";
 
-     format-prefix = "";
+     format-prefix = "󰅐";
 
      label = "%date% %time%";
    };
@@ -169,41 +175,17 @@ let mybar = "main"; in
    "module/pulseaudio" = {
      type = "internal/alsa";
 
-     format-volume = "<ramp-volume> <bar-volume>";
-     label-volume = "%percentage%%";
+     format-volume = "<ramp-volume><label-volume>";
+     label-volume = "%percentage:3%%";
      label-volume-foreground = "\${root.foreground}";
 
-     label-muted = "";
+     label-muted = "󰸈";
      label-muted-foreground = "#666";
 
-     ramp-volume-0 = "";
-     ramp-volume-1 = "";
-     ramp-volume-2 = "";
+     ramp-volume-0 = "󰕿";
+     ramp-volume-1 = "󰖀";
+     ramp-volume-2 = "󰕾";
 
-       # Only applies if <bar-volume> is used
-       bar-volume-format = "%fill%%empty%";
-       bar-volume-width = 9;
-       bar-volume-gradient = true;
-
-       bar-volume-indicator = "|";
-       bar-volume-indicator-foreground = "\${color.foreground}";
-       bar-volume-indicator-font = 2;
-
-       bar-volume-fill = "|";
-       bar-volume-fill-font = 2;
-       bar-volume-foreground-0 = "#2ACF06";
-       bar-volume-foreground-1 = "#2ACF06";
-       bar-volume-foreground-2 = "#2ACF06";
-       bar-volume-foreground-3 = "#67BF16";
-       bar-volume-foreground-4 = "#67BF16";
-       bar-volume-foreground-5 = "#67BF16";
-       bar-volume-foreground-6 = "#C4D600";
-       bar-volume-foreground-7 = "#D4B401";
-       bar-volume-foreground-8 = "#D60000";
-
-       bar-volume-empty = "|";
-       bar-volume-empty-font = 2;
-       bar-volume-empty-foreground = "#333333";
      };
 
 
@@ -217,17 +199,39 @@ let mybar = "main"; in
 
        format-discharging = "<ramp-capacity> <label-discharging>";
 
-       format-full-prefix = " ";
-       format-full-prefix-foreground = "\${colors.foreground-alt}";
+       format-full-prefix = "󰁹";
+       format-full-prefix-foreground = "#44f83f";
 
-       ramp-capacity-0 = "%{F#D60000}%{F-}";
-       ramp-capacity-1 = "%{F#D4B401}%{F-}";
-       ramp-capacity-2 = "%{F#C4D600}%{F-}";
-       ramp-capacity-3 = "%{F#67BF16}%{F-}";
-       ramp-capacity-4 = "%{F#2ACF06}%{F-}";
+       ramp-capacity-0 = "󰁺";
+       ramp-capacity-0-foreground = "#fb453c";
+       ramp-capacity-1 = "󰁻";
+       ramp-capacity-1-foreground = "#e7593c"; 
+       ramp-capacity-2 = "󰁼";
+       ramp-capacity-2-foreground = "#d26d3d"; 
+       ramp-capacity-3 = "󰁽";
+       ramp-capacity-3-foreground = "#be813d"; 
+       ramp-capacity-4 = "󰁾";
+       ramp-capacity-4-foreground = "#aa953d"; 
+       ramp-capacity-5 = "󰁿";
+       ramp-capacity-5-foreground = "#95a83e"; 
+       ramp-capacity-6 = "󰂀";
+       ramp-capacity-6-foreground = "#81bc3e"; 
+       ramp-capacity-7 = "󰂁";
+       ramp-capacity-7-foreground = "#6dd03e"; 
+       ramp-capacity-8 = "󰂂";
+       ramp-capacity-8-foreground = "#58e43f"; 
 
-       animation-charging-0 = "";
-       animation-charging-foreground = "#088F8F";
+       animation-charging-0 = "󰁺";
+       animation-charging-1 = "󰁻";
+       animation-charging-2 = "󰁼";
+       animation-charging-3 = "󰁽";
+       animation-charging-4 = "󰁾";
+       animation-charging-5 = "󰁿";
+       animation-charging-6 = "󰂀";
+       animation-charging-7 = "󰂁";
+       animation-charging-8 = "󰂂";
+       animation-charging-9 = "󰁹";
+       animation-charging-foreground = "#00FFFF";
        animation-charging-framerate = 750;
      };
 
