@@ -97,8 +97,6 @@
     fonts = with pkgs; [
       iosevka
       noto-fonts-emoji
-      font-awesome
-      font-awesome_5
       fantasque-sans-mono
       mononoki
       google-fonts
