@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   programs.vim = {
     enable = true;
@@ -9,7 +8,7 @@
     };
     extraConfig = ''
                 syntax on 
-                colorscheme molokai
+                colorscheme monokai
                 set nocompatible
                 " slim cursor
                 set guicursor=i-ci:ver10-iCursor
@@ -18,8 +17,9 @@
     '';
     plugins = [
       pkgs.vimPlugins.YouCompleteMe
-      pkgs.vimPlugins.molokai
-      pkgs.vimPlugins.rainbow_parentheses-vim
+      pkgs.vimPlugins.vim-monokai
+      pkgs.vimPlugins.rainbow
+      pkgs.vimPlugins.markdown-preview-nvim
     ];
   }; 
 }
