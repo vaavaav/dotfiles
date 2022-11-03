@@ -79,6 +79,7 @@
     neofetch
     nm-tray
     firefox
+    noisetorch
   ];
 
   nixpkgs.config.allowUnfree = true;

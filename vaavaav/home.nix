@@ -9,23 +9,24 @@
   home.stateVersion = "22.05";
 
   home.packages = with pkgs; [
-    flameshot
-    vscode
-    picom
-    rofi
-    jdk
-    ghc
-    stack
     alacritty
-    oh-my-zsh
-    spotify
-    discord
-    openvpn
-    gcc
     cmake
+    discord
+    elixir
+    flameshot
+    gcc
+    ghc
+    jdk
+    oh-my-zsh
+    openvpn
+    picom
     polybar
-    xournalpp
+    rofi
+    spotify
+    stack
     texlive.combined.scheme-full
+    vscode
+    xournalpp
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -51,10 +52,10 @@
   ];
 
   imports = [
-    ./modules/git.nix
-    ./modules/zsh.nix
     ./modules/alacritty.nix
-    ./modules/vim.nix
+    ./modules/git.nix
     ./modules/polybar.nix
+    ./modules/vim.nix
+    ./modules/zsh.nix
   ];
 }

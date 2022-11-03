@@ -5,13 +5,13 @@
     settings = {
       number = true;
       relativenumber = true;
+      shiftwidth = 2;
+      tabstop = 2;
     };
     extraConfig = ''
                 syntax on 
                 colorscheme monokai
                 set nocompatible
-                " slim cursor
-                set guicursor=i-ci:ver10-iCursor
                 " rainbow parentheses
                 let g:rainbow_active = 1
     '';
@@ -20,6 +20,7 @@
       pkgs.vimPlugins.vim-monokai
       pkgs.vimPlugins.rainbow
       pkgs.vimPlugins.markdown-preview-nvim
+      pkgs.vimPlugins.nerdtree
     ];
   }; 
 }
