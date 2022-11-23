@@ -27,6 +27,7 @@
     texlive.combined.scheme-full
     vscode
     xournalpp
+    zotero
   ];
 
   nixpkgs.config.allowUnfree = true;
