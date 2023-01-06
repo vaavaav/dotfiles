@@ -99,7 +99,6 @@
       iosevka
       noto-fonts-emoji
       fantasque-sans-mono
-      mononoki
       google-fonts
       material-design-icons
     ];

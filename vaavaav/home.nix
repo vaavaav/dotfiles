@@ -28,7 +28,17 @@
     vscode
     xournalpp
     zotero
+    rustc
+    cargo
   ];
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode;
+    extensions = with pkgs.vscode-extensions; [
+      matklad.rust-analyzer
+    ];
+  };
 
   nixpkgs.config.allowUnfree = true;
 
