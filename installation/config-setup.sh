@@ -11,3 +11,6 @@ ln ../configs/fonts.conf ~/.config/fontconfig/fonts.conf
 # alacritty 
 mkdir -p ~/.config/alacritty
 ln ../configs/alacritty.yml ~/.config/alacritty.yml
+
+# bachrc
+ln ../configs/.bashrc ~/.bachrc
