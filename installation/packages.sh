@@ -26,6 +26,7 @@ sudo aura -S \
     xournalpp \ 
     rustup \ 
     cargo \ 
+    man-db \ 
 /
 
 
