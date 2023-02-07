@@ -80,6 +80,10 @@
     nm-tray
     firefox
     noisetorch
+    gnumake
+    bintools
+    stack
+    haskell.compiler.ghc925
   ];
 
   nixpkgs.config.allowUnfree = true;
