@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo yay -Syu \
+yay -Syu \
     picom \
     i3-wm \
     alacritty \
@@ -35,3 +35,5 @@ sudo yay -Syu \
     visual-studio-code-bin \
     zotero \
     rtl8821au-dkms-git \
+    vim-plug \
+    feh \

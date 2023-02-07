@@ -10,3 +10,10 @@ bind '"\e[B":history-search-forward'
 # Keep Ctrl-Left and Ctrl-Right working when the above are used
 bind '"\e[1;5C":forward-word'
 bind '"\e[1;5D":backward-word'
+
+# Aliases
+alias kys="poweroff"
+
+# Oh-My-Bash stuff
+plugins=(git)
+OSH_THEME="agnoster"
