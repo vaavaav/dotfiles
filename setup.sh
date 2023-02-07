@@ -1,5 +1,5 @@
 #!/bin/bash 
 
-./installation/aura-setup.sh
+./installation/yay-setup.sh
 ./installation/packages.sh
 ./installation/config-setup.sh
