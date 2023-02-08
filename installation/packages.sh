@@ -34,6 +34,12 @@ yay -Syu \
     spotify \
     visual-studio-code-bin \
     zotero \
+		dkms \
+		linux-headers \
     rtl8821au-dkms-git \
     vim-plug \
     feh \
+		xorg \
+		polybar \
+		xorg-xinit \
+		gnome-font-viewer \

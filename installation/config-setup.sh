@@ -26,6 +26,6 @@ ln -f configs/.vimrc ~/.vimrc
 ln -f configs/picom.conf ~/.config/picom.conf
 
 # polybar
-mkdir -p ~/.config/polybar/launch.sh
+mkdir -p ~/.config/polybar
 ln -f configs/polybar/launch.sh ~/.config/polybar/launch.sh
 ln -f configs/polybar/config ~/.config/polybar/config.ini

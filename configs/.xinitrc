@@ -5,3 +5,5 @@ feh --bg-fill --randomize ~/.wallpapers/* &
 picom -b --experimental-backends --backend glx --config ~/.config/picom.conf &
 
 exec dbus-launch i3
+
+

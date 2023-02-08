@@ -1,5 +1,4 @@
 syntax on
-colorscheme monokai
 set relativenumber
 set number
 set nocompatible
@@ -23,3 +22,5 @@ Plug 'valloric/youcompleteme'
 Plug 'scrooloose/nerdtree'
 
 call plug#end()
+
+colorscheme monokai
