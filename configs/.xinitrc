@@ -1,5 +1,5 @@
 # Random wallpaper with feh (at the start of every session)
-feh --bg-fill --randomize ~/.wallpapers/* &
+feh --bg-fill --randomize ~/dotfiles/.wallpapers/* &
 
 # Compositor
 picom -b --experimental-backends --backend glx --config ~/.config/picom.conf &
