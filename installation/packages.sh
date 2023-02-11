@@ -10,6 +10,7 @@ yay -Syu \
 		lightdm \
 		lightdm-gtk-greeter \
 		linux-headers \
+		pavucontrol \
 		polybar \
 		ttf-material-design-icons-webfont \
 		xorg \
