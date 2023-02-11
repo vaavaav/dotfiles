@@ -1,4 +1,5 @@
 syntax on
+set ignorecase
 set relativenumber
 set number
 set nocompatible

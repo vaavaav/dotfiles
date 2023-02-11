@@ -170,14 +170,19 @@ bindsym XF86AudioPrev exec playerctl previous
 
 ## App shortcuts
 bindsym $mod+F2 exec /usr/bin/firefox
-bindsym Print exec "flameshot gui"
+bindsym $mod+Shift+S exec "flameshot gui"
 
 #############################################
 # autostart applications/services on login: #
 #############################################
 
+# Compositor
+exec --no-startup-id "picom --config ~/.config/picom.conf"
+# Wallpaper
+exec --no-startup-id "feh --bg-fill --randomize ~/.wallpapers/" 
 # Polybar
-exec --no-startup-id polybar main & 
+exec --no-startup-id "polybar mybar" 
+
 
 ######################################
 # color settings for bar and windows #

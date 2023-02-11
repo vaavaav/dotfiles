@@ -17,3 +17,9 @@ alias kys="poweroff"
 # Oh-My-Bash stuff
 plugins=(git)
 OSH_THEME="agnoster"
+export OSH=~/.oh-my-bash
+OMB_USE_SUDO=false
+source "$OSH"/oh-my-bash.sh
+
+# ghc stuff
+export PATH="~/.ghcup/bin:$PATH"

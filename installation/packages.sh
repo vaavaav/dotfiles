@@ -1,45 +1,50 @@
 #!/bin/bash
 
 yay -Syu \
-    picom \
-    i3-wm \
+		alsa-utils \
+		bluez \
+		bluez-utils \
+		dkms \
+		font-manager \
+		ghcup-hs-bin \
+		lightdm \
+		lightdm-gtk-greeter \
+		linux-headers \
+		polybar \
+		ttf-material-design-icons-webfont \
+		xorg \
+		xorg-xinit \
     alacritty \
-    ttf-iosevka \
-    vim \
-    wget \
     arandr \
     brightnessctl \
-    unzip \
-    neofetch \
-    network-manager-applet \
-    firefox \
-    noto-fonts-emoji \
+    cargo \
     cmake \
     discord \
     elixir \
+    feh \
+    firefox \
     flameshot \
     gcc \
     ghc \
-    openvpn \
-    rofi \
-    stack \
-    xournalpp \
-    rustup \
-    cargo \
+    i3-wm \
     man-db \
-    ttf-google-fonts-git \
-    ttf-material-design-icons \
-    oh-my-bash-git \
-    texlive-full \
-    spotify \
-    visual-studio-code-bin \
-    zotero \
-		dkms \
-		linux-headers \
+    neofetch \
+    network-manager-applet \
+    noisetorch \
+    noto-fonts-emoji \
+    openvpn \
+    picom \
+    rofi \
     rtl8821au-dkms-git \
+    rustup \
+    spotify \
+    texlive-full \
+    ttf-google-fonts-git \
+    ttf-iosevka \
+    unzip \
+    vim \
     vim-plug \
-    feh \
-		xorg \
-		polybar \
-		xorg-xinit \
-		gnome-font-viewer \
+    visual-studio-code-bin \
+    wget \
+    xournalpp \
+    zotero \

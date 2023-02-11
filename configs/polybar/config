@@ -138,10 +138,10 @@ label-connected = %local_ip%
 [module/date]
 type = internal/date
 interval = 5
-format-prefix = 󰅐
+format-prefix = "󰅐 " 
 label = %date% %time%
 
-date =  %a, %d-%m-%Y
+date = %a, %d-%m-%Y
 date-alt =  %d-%m-%Y
 
 time = %H:%M
@@ -211,6 +211,7 @@ animation-charging-framerate = 750
 
 [settings] 
 screenchange-reload = true
+pseudo-transparency = true
 
 [global/wm] 
 margin-top = 5
