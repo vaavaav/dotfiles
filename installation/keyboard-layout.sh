@@ -1,2 +1,2 @@
 #!/bin/bash
-setxkbmap us intl
+localectl set-x11-keymap us "" intl

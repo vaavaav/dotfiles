@@ -1,4 +1,5 @@
 syntax on
+colorscheme monokai
 set ignorecase
 set relativenumber
 set number
@@ -17,11 +18,8 @@ autocmd BufNewFile,BufRead *.csv   set filetype=csv_semicolon
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'sickill/vim-monokai'
 Plug 'mechatroner/rainbow_csv'
 Plug 'valloric/youcompleteme'
 Plug 'scrooloose/nerdtree'
 
 call plug#end()
-
-colorscheme monokai
