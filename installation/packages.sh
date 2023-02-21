@@ -44,8 +44,10 @@ yay -Syu \
     ttf-iosevka \
     unzip \
     vim \
-    vim-plug \
+		neovim \
+		nvim-packer-git \
     visual-studio-code-bin \
     wget \
     xournalpp \
+    neovim-web-devicons-git \
     zotero \
