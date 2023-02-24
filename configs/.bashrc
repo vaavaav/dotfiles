@@ -11,6 +11,10 @@ bind '"\e[B":history-search-forward'
 bind '"\e[1;5C":forward-word'
 bind '"\e[1;5D":backward-word'
 
+# Aliases
+alias kys="poweroff"
+alias resetbg="feh --bg-fill --randomize ~/.wallpapers"
+alias vim="nvim"
 
 # Oh-My-Bash stuff
 plugins=(git)
@@ -18,10 +22,6 @@ OSH_THEME="agnoster"
 export OSH=~/.oh-my-bash
 OMB_USE_SUDO=false
 source "$OSH"/oh-my-bash.sh
-
-# Aliases
-alias kys="poweroff"
-alias vim="nvim"
 
 # Environment Vars
 VISUAL="nvim"
