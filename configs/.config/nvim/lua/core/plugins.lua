@@ -1,4 +1,4 @@
-local ensure_packer = function()
+  local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
@@ -17,6 +17,12 @@ return require('packer').startup(function(use)
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
   use 'nvim-lualine/lualine.nvim'
+  use 'sheerun/vim-polyglot'
+  use 'junegunn/fzf'
+  use {'akinsho/toggleterm.nvim', tag = '*', config = function()
+    require("toggleterm").setup()
+  end}
+  use { 'neoclide/coc.nvim', branch = 'release' } 
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
