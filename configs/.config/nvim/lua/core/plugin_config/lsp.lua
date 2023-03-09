@@ -10,7 +10,7 @@ lsp.nvim_workspace()
 
 lsp.ensure_installed({
     'rust_analyzer',
-    'ltex',
+    'texlab',
     'clangd',
     'grammarly',
     'dhall_lsp_server',

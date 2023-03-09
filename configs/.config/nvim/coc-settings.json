@@ -1,6 +1,0 @@
-{
-  "coc.preference.formatOnSaveFiletypes": ["markdown"],
-  "codeLens.enable": true,
-  "rust-analyser.enable": true,
-  "rust-analyser.cargo.autoreload": true,
-}
