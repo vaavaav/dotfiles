@@ -166,7 +166,7 @@ ramp-volume-2 = 󰕾
 
 [module/battery] 
 type = internal/battery
-battery = BAT0
+battery = BAT1
 adapter = AC
 full-at = 98
 
