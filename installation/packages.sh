@@ -15,6 +15,7 @@ yay -Syu \
 		ttf-material-design-icons-webfont \
 		xorg \
 		xorg-xinit \
+    xclip \
     alacritty \
     arandr \
     brightnessctl \
