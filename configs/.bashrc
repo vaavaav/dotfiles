@@ -15,6 +15,7 @@ bind '"\e[1;5D":backward-word'
 alias kys="poweroff"
 alias resetbg="feh --bg-fill --randomize ~/.wallpapers"
 alias vim="nvim"
+alias clipboard="xclip -selection clipboard"
 
 # Oh-My-Bash stuff
 plugins=(git)
