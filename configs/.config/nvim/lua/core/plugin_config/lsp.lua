@@ -9,15 +9,16 @@ local lsp = require('lsp-zero').preset({
 lsp.nvim_workspace()
 
 lsp.ensure_installed({
+    'ansiblels',
+    'clangd',
+    'cmake',
+    'dhall_lsp_server',
+    'elixirls',
+    'grammarly',
+    'jsonls',
+    'ltex',
     'rust_analyzer',
     'texlab',
-    'clangd',
-    'grammarly',
-    'dhall_lsp_server',
-    'ansiblels',
-    'cmake',
-    'elixirls',
-    'jsonls',
     'yamlls',
 })
 
