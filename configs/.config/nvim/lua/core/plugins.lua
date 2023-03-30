@@ -19,6 +19,12 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'sheerun/vim-polyglot'
   use 'junegunn/fzf'
+  use ({
+      "iamcco/markdown-preview.nvim",
+      run = function()
+        vim.fn["mkdp#util#install"]()
+      end
+  })
   use {'akinsho/toggleterm.nvim', tag = '*', config = function()
     require("toggleterm").setup()
   end}
@@ -44,6 +50,7 @@ return require('packer').startup(function(use)
       {'rafamadriz/friendly-snippets'}, -- Optional
     }
   }
+  use { 'kaarmu/typst.vim', ft = {'typ'} }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

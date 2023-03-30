@@ -10,8 +10,8 @@ lsp.nvim_workspace()
 
 lsp.ensure_installed({
     'ansiblels',
-    'clangd',
     'cmake',
+    'clangd',
     'dhall_lsp_server',
     'elixirls',
     'grammarly',
