@@ -10,12 +10,13 @@ yay -Syu \
 		lightdm \
 		lightdm-gtk-greeter \
 		linux-headers \
+		neovim \
+		nvim-packer-git \
 		pavucontrol \
 		polybar \
 		ttf-material-design-icons-webfont \
-		xorg \
+		xorg-server \
 		xorg-xinit \
-    xclip \
     alacritty \
     arandr \
     brightnessctl \
@@ -31,6 +32,7 @@ yay -Syu \
     i3-wm \
     man-db \
     neofetch \
+    neovim-web-devicons-git \
     network-manager-applet \
     noisetorch \
     noto-fonts-emoji \
@@ -40,15 +42,12 @@ yay -Syu \
     rtl8821au-dkms-git \
     rustup \
     spotify \
-    texlive-full \
-    ttf-google-fonts-git \
     ttf-iosevka \
+    typst \
     unzip \
     vim \
-		neovim \
-		nvim-packer-git \
     visual-studio-code-bin \
     wget \
+    xclip \
     xournalpp \
-    neovim-web-devicons-git \
     zotero \
