@@ -18,6 +18,7 @@ yay -Syu \
 		xorg-server \
 		xorg-xinit \
     alacritty \
+    apple-fonts \
     arandr \
     brightnessctl \
     cargo \
