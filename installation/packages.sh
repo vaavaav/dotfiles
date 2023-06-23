@@ -10,6 +10,11 @@ yay -Syu \
 		lightdm \
 		lightdm-gtk-greeter \
 		linux-headers \
+    adobe-source-han-serif-cn-fonts \
+    adobe-source-han-serif-jp-fonts \
+    adobe-source-han-serif-kr-fonts \
+    adobe-source-han-serif-otc-fonts\
+    adobe-source-han-serif-tw-fonts \
 		neovim \
 		nvim-packer-git \
 		pavucontrol \
