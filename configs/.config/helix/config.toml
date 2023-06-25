@@ -1,0 +1,19 @@
+theme = "sonokai"
+
+[editor]
+line-number = "relative"
+auto-format = true
+
+[editor.indent-guides]
+render = true
+
+[editor.soft-wrap]
+enable = true
+
+[keys.normal]
+0 = "goto_line_start"
+"$" = "goto_line_end"
+
+[keys.select]
+0 = "goto_line_start"
+"$" = "goto_line_end"
