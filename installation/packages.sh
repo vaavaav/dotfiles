@@ -2,19 +2,13 @@
 
 yay -Syu \
 		alsa-utils \
-		bluez \
-		bluez-utils \
+		bluez-git \
 		dkms \
 		font-manager \
 		ghcup-hs-bin \
 		lightdm \
 		lightdm-gtk-greeter \
 		linux-headers \
-    adobe-source-han-serif-cn-fonts \
-    adobe-source-han-serif-jp-fonts \
-    adobe-source-han-serif-kr-fonts \
-    adobe-source-han-serif-otc-fonts\
-    adobe-source-han-serif-tw-fonts \
 		neovim \
 		nvim-packer-git \
 		pavucontrol \
@@ -22,6 +16,11 @@ yay -Syu \
 		ttf-material-design-icons-webfont \
 		xorg-server \
 		xorg-xinit \
+    adobe-source-han-serif-cn-fonts \
+    adobe-source-han-serif-jp-fonts \
+    adobe-source-han-serif-kr-fonts \
+    adobe-source-han-serif-otc-fonts\
+    adobe-source-han-serif-tw-fonts \
     alacritty \
     apple-fonts \
     arandr \
@@ -44,6 +43,7 @@ yay -Syu \
     noto-fonts-emoji \
     openvpn \
     picom \
+    pulseaudio-bluetooth \
     rofi \
     rtl8821au-dkms-git \
     rustup \
