@@ -1,6 +1,5 @@
 #!/bin/bash
 
-yay -Syu \
 		alsa-utils \
 		bluez-git \
 		dkms \
@@ -24,6 +23,7 @@ yay -Syu \
     alacritty \
     apple-fonts \
     arandr \
+    biber \
     brightnessctl \
     cargo \
     cmake \
@@ -48,6 +48,15 @@ yay -Syu \
     rtl8821au-dkms-git \
     rustup \
     spotify \
+    texlive-bibtexextra \
+    texlive-basic \
+    texlive-fontsrecommended \
+    texlive-latexrecommended \
+    texlive-latexextra \
+    texlive-latex \
+    texlive-luatex \
+    texlive-plaingeneric \
+    texlive-langportuguese \
     ttf-iosevka \
     typst \
     unzip \
@@ -57,3 +66,4 @@ yay -Syu \
     xclip \
     xournalpp \
     zotero \
+yay -Syu \
