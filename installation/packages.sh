@@ -1,5 +1,6 @@
 #!/bin/bash
 
+yes y | yay -Syu --needed --color always \
 		alsa-utils \
 		bluez-git \
 		dkms \
@@ -66,4 +67,3 @@
     xclip \
     xournalpp \
     zotero \
-yay -Syu \
