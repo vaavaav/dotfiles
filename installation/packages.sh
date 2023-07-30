@@ -35,6 +35,7 @@ yes y | yay -Syu --needed --color always \
     flameshot \
     gcc \
     ghc \
+    gnome-keyring \
     i3-wm \
     man-db \
     neofetch \
@@ -49,15 +50,15 @@ yes y | yay -Syu --needed --color always \
     rtl8821au-dkms-git \
     rustup \
     spotify \
-    texlive-bibtexextra \
     texlive-basic \
+    texlive-bibtexextra \
     texlive-fontsrecommended \
-    texlive-latexrecommended \
-    texlive-latexextra \
+    texlive-langportuguese \
     texlive-latex \
+    texlive-latexextra \
+    texlive-latexrecommended \
     texlive-luatex \
     texlive-plaingeneric \
-    texlive-langportuguese \
     ttf-iosevka \
     typst \
     unzip \
