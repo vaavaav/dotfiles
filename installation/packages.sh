@@ -36,6 +36,7 @@ yes y | yay -Syu --needed --color always \
     gcc \
     ghc \
     i3-wm \
+    inter-font \
     man-db \
     neofetch \
     neovim-web-devicons-git \
@@ -49,15 +50,15 @@ yes y | yay -Syu --needed --color always \
     rtl8821au-dkms-git \
     rustup \
     spotify \
-    texlive-bibtexextra \
     texlive-basic \
+    texlive-bibtexextra \
     texlive-fontsrecommended \
-    texlive-latexrecommended \
-    texlive-latexextra \
+    texlive-langportuguese \
     texlive-latex \
+    texlive-latexextra \
+    texlive-latexrecommended \
     texlive-luatex \
     texlive-plaingeneric \
-    texlive-langportuguese \
     ttf-iosevka \
     typst \
     unzip \
