@@ -25,6 +25,7 @@ yes y | yay -Syu --needed --color always \
     apple-fonts \
     arandr \
     biber \
+    bitwarden \
     brightnessctl \
     cargo \
     cmake \
