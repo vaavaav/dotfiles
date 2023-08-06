@@ -35,6 +35,7 @@ yes y | yay -Syu --needed --color always \
     flameshot \
     gcc \
     ghc \
+    gnome-keyring \
     i3-wm \
     inter-font \
     man-db \
