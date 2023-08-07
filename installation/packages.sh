@@ -40,6 +40,7 @@ yes y | yay -Syu --needed --color always \
     i3-wm \
     inter-font \
     man-db \
+    mupdf \
     neofetch \
     neovim-web-devicons-git \
     network-manager-applet \
