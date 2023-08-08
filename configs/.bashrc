@@ -7,8 +7,8 @@ bind 'set colored-completion-prefix on'
 bind 'set colored-stats on' 
 bind 'set completion-ignore-case on' 
 # Cycle through history based on characters already typed on the line
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
+bind '"\C-k":history-search-backward'
+bind '"\C-j":history-search-forward'
 # Keep Ctrl-Left and Ctrl-Right working when the above are used
 bind '"\e[1;5C":forward-word'
 bind '"\e[1;5D":backward-word'
