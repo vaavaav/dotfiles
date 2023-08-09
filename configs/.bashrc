@@ -16,7 +16,6 @@ bind '"\e[1;5D":backward-word'
 # Aliases
 alias kys="poweroff"
 alias resetbg="feh --bg-fill --randomize ~/.wallpapers"
-alias hx="helix"
 alias clipboard="xclip -selection clipboard"
 
 # Oh-My-Bash stuff
@@ -27,8 +26,8 @@ OMB_USE_SUDO=false
 source "$OSH"/oh-my-bash.sh
 
 # Environment Vars
-VISUAL="helix"
-EDITOR="helix"
+VISUAL="nvim"
+EDITOR="nvim"
 
 # ghc stuff
 export PATH="~/.ghcup/bin:$PATH"
