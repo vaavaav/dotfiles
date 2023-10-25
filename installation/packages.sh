@@ -1,21 +1,21 @@
 #!/bin/bash
 
-yes y | yay -Syu --needed --color always \
-		alsa-utils \
-		bluez-git \
-		dkms \
-		font-manager \
-		ghcup-hs-bin \
-		lightdm \
-		lightdm-gtk-greeter \
-		linux-headers \
-		neovim \
-		nvim-packer-git \
-		pavucontrol \
-		polybar \
-		ttf-material-design-icons-webfont \
-		xorg-server \
-		xorg-xinit \
+yay -Syu --needed --color always \
+    alsa-utils \
+    bluez-git \
+    dkms \
+    font-manager \
+    ghcup-hs-bin \
+    lightdm \
+    lightdm-gtk-greeter \
+    linux-headers \
+    neovim \
+    nvim-packer-git \
+    pavucontrol \
+    polybar \
+    ttf-material-design-icons-webfont \
+    xorg-server \
+    xorg-xinit \
     adobe-source-han-serif-cn-fonts \
     adobe-source-han-serif-jp-fonts \
     adobe-source-han-serif-kr-fonts \
@@ -55,12 +55,14 @@ yes y | yay -Syu --needed --color always \
     spotify \
     texlive-basic \
     texlive-bibtexextra \
+    texlive-fontsextra \
     texlive-fontsrecommended \
     texlive-langportuguese \
     texlive-latex \
     texlive-latexextra \
     texlive-latexrecommended \
     texlive-luatex \
+    texlive-mathscience \
     texlive-plaingeneric \
     ttf-iosevka \
     typst \
