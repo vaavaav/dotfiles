@@ -155,13 +155,13 @@ bindsym $mod+a focus parent
 ## Multimedia Keys
 
 # volume
-bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+
-bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%-
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
 
 # mute
-bindsym XF86AudioMute exec amixer set Master toggle 
+bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 # mute mic
-bindsym XF86AudioMicMute exec amixer set Capture toggle 
+bindsym XF86AudioMicMute exec "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
