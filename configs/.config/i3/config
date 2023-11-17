@@ -179,7 +179,7 @@ bindsym $mod+Shift+S exec "flameshot gui"
 # Compositor
 exec --no-startup-id "picom --config ~/.config/picom.conf"
 # Wallpaper
-exec --no-startup-id "feh --bg-fill --randomize ~/.wallpapers/" 
+exec --no-startup-id $reset_background
 # Polybar
 exec --no-startup-id "polybar mybar" 
 # NM-applet
@@ -215,3 +215,15 @@ client.urgent		    $urgentred	$urgentred	$white		$purple		$yellowbrown
 #####################################
 
 bindsym $mod+d exec rofi -show drun -icon-theme \"Papirus\" -show-icons 
+
+# CUSTOM
+
+set $reset_background feh --bg-fill --randomize ~/.wallpapers
+
+## Setup second monitor and reset background 
+set $laptop_monitor --output eDP-1 --primary --mode 1920x1200 --pos 960x2160 --rotate normal
+bindsym XF86Display exec (( xrandr | grep -q 'HDMI-1 connected' ) && ( xrandr $laptop_monitor --output HDMI-1 --auto --mode 3840x2160 --pos 0x0 --rotate normal ) || ( xrandr $laptop_monitor --output HDMI-1 --off)) && $reset_background
+
+## Reset background
+bindsym $mod+b exec $reset_background
+
