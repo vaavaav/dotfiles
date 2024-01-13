@@ -12,6 +12,7 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
+  use 'rebelot/kanagawa.nvim'
   use 'wbthomason/packer.nvim'
   use 'tanvirtin/monokai.nvim'
   use 'nvim-tree/nvim-tree.lua'
