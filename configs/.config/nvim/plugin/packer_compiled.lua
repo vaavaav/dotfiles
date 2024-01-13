@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/vaavaav/.local/share/nvim/site/pack/packer/start/fzf",
     url = "https://github.com/junegunn/fzf"
   },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/vaavaav/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/vaavaav/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
