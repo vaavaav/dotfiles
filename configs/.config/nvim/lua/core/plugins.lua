@@ -38,6 +38,9 @@ return require('packer').startup(function(use)
       {'williamboman/mason.nvim'},           -- Optional
       {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
+      -- copilot
+      {'github/copilot.vim'},
+
       -- Autocompletion
       {'hrsh7th/nvim-cmp'},         -- Required
       {'hrsh7th/cmp-nvim-lsp'},     -- Required

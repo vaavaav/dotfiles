@@ -221,9 +221,12 @@ bindsym $mod+d exec rofi -show drun -icon-theme \"Papirus\" -show-icons
 set $reset_background feh --bg-fill --randomize ~/.wallpapers
 
 ## Setup second monitor and reset background 
-set $laptop_monitor --output eDP-1 --primary --mode 1920x1200 --pos 960x2160 --rotate normal
-bindsym XF86Display exec (( xrandr | grep -q 'HDMI-1 connected' ) && ( xrandr $laptop_monitor --output HDMI-1 --auto --mode 3840x2160 --pos 0x0 --rotate normal ) || ( xrandr $laptop_monitor --output HDMI-1 --off)) && $reset_background
+set $laptop_monitor --output eDP-1 --primary --mode 1920x1200 --pos 320x1440 --rotate normal
+bindsym XF86Display exec (( xrandr | grep -q 'DP-1 connected' ) && ( xrandr $laptop_monitor --output DP-1 --auto --mode 2560x1440 --pos 0x0 --rotate normal ) || ( xrandr $laptop_monitor --output DP-1 --off)) && $reset_background
 
 ## Reset background
 bindsym $mod+b exec $reset_background
 
+## Floating notifications
+for_window [window_role="alert"] floating enable
+no_focus [window_role="alert"]

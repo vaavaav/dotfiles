@@ -22,7 +22,6 @@ yay -Syu --needed --color always \
     adobe-source-han-serif-otc-fonts\
     adobe-source-han-serif-tw-fonts \
     alacritty \
-    apple-fonts \
     arandr \
     biber \
     bitwarden \
@@ -46,11 +45,11 @@ yay -Syu --needed --color always \
     network-manager-applet \
     noisetorch \
     noto-fonts-emoji \
+    openssh-askpass \
     openvpn \
     picom \
     pulseaudio-bluetooth \
     rofi \
-    rtl8821au-dkms-git \
     rustup \
     spotify \
     texlive-basic \
@@ -64,6 +63,7 @@ yay -Syu --needed --color always \
     texlive-luatex \
     texlive-mathscience \
     texlive-plaingeneric \
+    thunderbird \
     ttf-iosevka \
     typst \
     unzip \
@@ -71,5 +71,4 @@ yay -Syu --needed --color always \
     visual-studio-code-bin \
     wget \
     xclip \
-    xournalpp \
     zotero \
