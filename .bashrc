@@ -15,7 +15,6 @@ bind '"\e[1;5D":backward-word'
 
 # Aliases
 alias kys="poweroff"
-alias clipboard="xclip -selection clipboard"
 
 # Oh-My-Bash stuff
 plugins=(git)
@@ -25,10 +24,10 @@ OMB_USE_SUDO=false
 source "$OSH"/oh-my-bash.sh
 
 # Environment Vars
-VISUAL="nvim"
-EDITOR="nvim"
+VISUAL="vim"
+EDITOR="vim"
 
-# ghc stuff
+# GHC
 export PATH="~/.ghcup/bin:$PATH"
 
 # Start SSH agent automatically
