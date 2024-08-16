@@ -1,96 +1,78 @@
-font Iosevka 12
-
-# set the mod key to the win key: 
 set $mod Mod4
+set $wm_setting_key_left h
+set $wm_setting_key_right l
+set $wm_setting_key_up k
+set $wm_setting_key_down j
 
-# default i3 tiling mode:
-workspace_layout default
+set $wallpaper feh --bg-fill --randomize ~/.wallpapers
 
-#border indicator on windows:
-# new_window pixel 1
+# Applications
+bindsym $mod+Return exec alacritty
+bindsym $mod+d exec rofi -show drun -icon-theme \"Papirus\" -show-icons 
+bindsym $mod+b exec $wallpaper
+bindsym $mod+Shift+s exec flameshot gui
 
-# Set inner/outer gaps
+exec --no-startup-id picom
+exec --no-startup-id polybar mybar
+exec --no-startup-id nm-applet
+exec --no-startup-id $wallpaper
+
+# Gaps
 gaps inner 6
 gaps outer 3
 
-# show window title bars (not officially supported with i3gaps)
+# Borders
 default_border none
-
-# Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # switch to workspace
-bindsym $mod+1    workspace  $ws1
-bindsym $mod+2    workspace  $ws2
-bindsym $mod+3    workspace  $ws3
-bindsym $mod+4    workspace  $ws4
-bindsym $mod+5    workspace  $ws5
-bindsym $mod+6    workspace  $ws6
-bindsym $mod+7    workspace  $ws7
-bindsym $mod+8    workspace  $ws8
-bindsym $mod+9    workspace  $ws9
-bindsym $mod+0    workspace  $ws10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1    move container to workspace  $ws1
-bindsym $mod+Shift+2    move container to workspace  $ws2
-bindsym $mod+Shift+3    move container to workspace  $ws3
-bindsym $mod+Shift+4    move container to workspace  $ws4
-bindsym $mod+Shift+5    move container to workspace  $ws5
-bindsym $mod+Shift+6    move container to workspace  $ws6
-bindsym $mod+Shift+7    move container to workspace  $ws7
-bindsym $mod+Shift+8    move container to workspace  $ws8
-bindsym $mod+Shift+9    move container to workspace  $ws9
-bindsym $mod+Shift+0    move container to workspace  $ws10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # resize window (you can also use the mouse for that):
 mode "resize" {
-# These bindings trigger as soon as you enter the resize mode
-# Pressing left will shrink the window’s width.
-# Pressing right will grow the window’s width.
-# Pressing up will shrink the window’s height.
-# Pressing down will grow the window’s height.
-	bindsym h resize grow width 5 px or 5 ppt
-	bindsym j resize shrink height 5 px or 5 ppt
-	bindsym k resize grow height 5 px or 5 ppt
-	bindsym l resize shrink width 5 px or 5 ppt
-
-# same bindings, but for the arrow keys
-	bindsym Left resize shrink width 10 px or 10 ppt
-	bindsym Down resize grow height 10 px or 10 ppt
-	bindsym Up resize shrink height 10 px or 10 ppt
-	bindsym Right resize grow width 10 px or 10 ppt
-
-# back to normal: Enter or Escape
+	bindsym $wm_setting_key_left  resize grow   width  5 px or 5 ppt
+	bindsym $wm_setting_key_down  resize shrink height 5 px or 5 ppt
+	bindsym $wm_setting_key_up    resize grow   height 5 px or 5 ppt
+	bindsym $wm_setting_key_right resize shrink width  5 px or 5 ppt
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
-##########################################
-# configuration for workspace behaviour: #
-##########################################
-
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
 set $ws10 "10"
-
-######################################
-# keybindings for different actions: #
-######################################
-
-# start a terminal
-bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -99,32 +81,20 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
 
 # Backlight control
-bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessUp   exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+$wm_setting_key_left  focus left
+bindsym $mod+$wm_setting_key_down  focus down
+bindsym $mod+$wm_setting_key_up    focus up
+bindsym $mod+$wm_setting_key_right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+$wm_setting_key_left  move left
+bindsym $mod+Shift+$wm_setting_key_down  move down
+bindsym $mod+Shift+$wm_setting_key_up    move up
+bindsym $mod+Shift+$wm_setting_key_right move right
 
 # split in horizontal orientation
 bindsym $mod+Ctrl+h split h
@@ -149,70 +119,30 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# Sound
+# sound
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
 bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
 bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 bindsym XF86AudioMicMute exec "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-# Music
+
+# music
 bindsym $mod+XF86AudioMute exec "playerctl play-pause"
 bindsym $mod+XF86AudioLowerVolume exec "playerctl previous"
 bindsym $mod+XF86AudioRaiseVolume exec "playerctl next"
 
-## App shortcuts
-bindsym $mod+Shift+S exec "flameshot gui"
-
-#############################################
-# autostart applications/services on login: #
-#############################################
-
-exec --no-startup-id "picom"
-exec --no-startup-id "polybar mybar" 
-exec --no-startup-id "nm-applet"
-# Wallpaper
-exec --no-startup-id $reset_background
-
-######################################
-# color settings for bar and windows #
-######################################
+# display
+bindsym XF86Display exec (( xrandr | grep -q 'DP-1 connected' ) && ( xrandr --output eDP-1 --primary --mode 1920x1200 --pos 320x1440 --rotate normal --output DP-1 --auto --mode 2560x1440 --pos 0x0 --rotate normal ) || ( xrandr --output eDP-1 --primary --mode 1920x1200 --pos 320x1440 --rotate normal --output DP-1 --off)) && $wallpaper
 
 # Define colors variables:
-set $darkbluetrans	#26bbd9
-set $darkblue		#26bbd9
-set $lightblue		#26bbd9
-set $urgentred		#e95678
-set $white		#e3e6ee
-set $black		#1c1e26
-set $purple		#e345ff
-set $darkgrey		#383c4a
-set $grey		#b0b5bd
-set $mediumgrey		#8b8b8b
-set $yellowbrown	#fac29a
-
-# define colors for windows:
-#class		        	border		bground		text		indicator	child_border
-client.focused		    $lightblue	$darkblue	$white		$purple		$mediumgrey
-client.unfocused	    $darkblue	$darkblue	$grey		$purple		$darkgrey
-client.focused_inactive	$darkblue	$darkblue	$grey		$purple		$black
-client.urgent		    $urgentred	$urgentred	$white		$purple		$yellowbrown
-
-#####################################
-# Application menu handled by rofi: #
-#####################################
-
-bindsym $mod+d exec rofi -show drun -icon-theme \"Papirus\" -show-icons 
-
-# CUSTOM
-
-set $reset_background feh --bg-fill --randomize ~/.wallpapers
-
-## Setup second monitor and reset background 
-set $laptop_monitor --output eDP-1 --primary --mode 1920x1200 --pos 320x1440 --rotate normal
-bindsym XF86Display exec (( xrandr | grep -q 'DP-1 connected' ) && ( xrandr $laptop_monitor --output DP-1 --auto --mode 2560x1440 --pos 0x0 --rotate normal ) || ( xrandr $laptop_monitor --output DP-1 --off)) && $reset_background
-
-## Reset background
-bindsym $mod+b exec $reset_background
+set $wm_color_border_active_bg   #26bbd9
+set $wm_color_border_active_fg   #e3e6ee
+set $wm_color_border_inactive_bg #26bbd9
+set $wm_color_border_inactive_fg #26bbd9
 
 ## Floating notifications
 for_window [window_role="alert"] floating enable
 no_focus [window_role="alert"]
+
+# Miscellaneous settings 
+font Iosevka 12
+

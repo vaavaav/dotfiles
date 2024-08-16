@@ -15,3 +15,8 @@ vim.keymap.set({'n', 'v'}, '<c-d>', '<c-d>zz')
 vim.keymap.set({'n', 'v'}, 'n', 'nzz')
 vim.keymap.set({'n', 'v'}, 'N', 'Nzz')
 vim.keymap.set({'n', 'v'}, '<Leader>p', '"_dP')
+
+vim.keymap.set('n', "<C-h>", "<cmd> TmuxNavigateLeft<CR>" )
+vim.keymap.set('n', "<C-l>", "<cmd> TmuxNavigateRight<CR>")
+vim.keymap.set('n', "<C-j>", "<cmd> TmuxNavigateDown<CR>")
+vim.keymap.set('n', "<C-k>", "<cmd> TmuxNavigateUp<CR>")

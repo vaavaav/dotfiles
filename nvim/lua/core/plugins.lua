@@ -14,12 +14,15 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'rebelot/kanagawa.nvim'
   use 'wbthomason/packer.nvim'
-  use 'tanvirtin/monokai.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
   use 'nvim-lualine/lualine.nvim'
   use 'sheerun/vim-polyglot'
   use 'junegunn/fzf'
+  use {
+    "christoomey/vim-tmux-navigator",
+      lazy = false,
+    }
   use ({
       "iamcco/markdown-preview.nvim",
       run = function()
