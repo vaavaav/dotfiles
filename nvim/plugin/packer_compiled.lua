@@ -104,6 +104,12 @@ _G.packer_plugins = {
     path = "/home/vaavaav/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["conform.nvim"] = {
+    config = { "\27LJ\2\nì\3\0\0\5\0\26\0\0296\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\22\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\0035\4\18\0=\4\19\0035\4\20\0=\4\21\3=\3\23\0025\3\24\0=\3\25\2B\0\2\1K\0\1\0\19format_on_save\1\0\2\15lsp_format\rfallback\15timeout_ms\3ô\3\21formatters_by_ft\1\0\2\19format_on_save\0\21formatters_by_ft\0\ash\1\2\0\0\nshfmt\tbash\1\2\0\0\nshfmt\ncmake\1\2\0\0\17cmake_format\trust\1\2\1\0\frustfmt\15lsp_format\rfallback\vpython\1\3\0\0\nisort\nblack\blua\1\2\0\0\vstylua\fhaskell\1\2\0\0\vormolu\bcpp\1\2\0\0\17clang-format\6c\1\0\t\blua\0\vpython\0\tbash\0\fhaskell\0\6c\0\ash\0\bcpp\0\ncmake\0\trust\0\1\2\0\0\17clang-format\nsetup\fconform\frequire\0" },
+    loaded = true,
+    path = "/home/vaavaav/.local/share/nvim/site/pack/packer/start/conform.nvim",
+    url = "https://github.com/stevearc/conform.nvim"
+  },
   ["copilot.vim"] = {
     loaded = true,
     path = "/home/vaavaav/.local/share/nvim/site/pack/packer/start/copilot.vim",
@@ -149,11 +155,6 @@ _G.packer_plugins = {
     path = "/home/vaavaav/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["monokai.nvim"] = {
-    loaded = true,
-    path = "/home/vaavaav/.local/share/nvim/site/pack/packer/start/monokai.nvim",
-    url = "https://github.com/tanvirtin/monokai.nvim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/vaavaav/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -163,11 +164,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/vaavaav/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-tree.lua"] = {
-    loaded = true,
-    path = "/home/vaavaav/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -192,10 +188,10 @@ _G.packer_plugins = {
     path = "/home/vaavaav/.local/share/nvim/site/pack/packer/opt/typst.vim",
     url = "https://github.com/kaarmu/typst.vim"
   },
-  ["vim-polyglot"] = {
+  ["vim-tmux-navigator"] = {
     loaded = true,
-    path = "/home/vaavaav/.local/share/nvim/site/pack/packer/start/vim-polyglot",
-    url = "https://github.com/sheerun/vim-polyglot"
+    path = "/home/vaavaav/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
+    url = "https://github.com/christoomey/vim-tmux-navigator"
   }
 }
 
@@ -204,6 +200,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for toggleterm.nvim]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
 time([[Config for toggleterm.nvim]], false)
+-- Config for: conform.nvim
+time([[Config for conform.nvim]], true)
+try_loadstring("\27LJ\2\nì\3\0\0\5\0\26\0\0296\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\22\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\0035\4\18\0=\4\19\0035\4\20\0=\4\21\3=\3\23\0025\3\24\0=\3\25\2B\0\2\1K\0\1\0\19format_on_save\1\0\2\15lsp_format\rfallback\15timeout_ms\3ô\3\21formatters_by_ft\1\0\2\19format_on_save\0\21formatters_by_ft\0\ash\1\2\0\0\nshfmt\tbash\1\2\0\0\nshfmt\ncmake\1\2\0\0\17cmake_format\trust\1\2\1\0\frustfmt\15lsp_format\rfallback\vpython\1\3\0\0\nisort\nblack\blua\1\2\0\0\vstylua\fhaskell\1\2\0\0\vormolu\bcpp\1\2\0\0\17clang-format\6c\1\0\t\blua\0\vpython\0\tbash\0\fhaskell\0\6c\0\ash\0\bcpp\0\ncmake\0\trust\0\1\2\0\0\17clang-format\nsetup\fconform\frequire\0", "config", "conform.nvim")
+time([[Config for conform.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
