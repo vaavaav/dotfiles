@@ -11,6 +11,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+d exec rofi -show drun -icon-theme \"Papirus\" -show-icons 
 bindsym $mod+b exec $wallpaper
 bindsym $mod+Shift+s exec flameshot gui
+bindsym $mod+t exec picom-trans -c -t
 
 exec --no-startup-id picom
 exec --no-startup-id polybar mybar

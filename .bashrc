@@ -1,11 +1,11 @@
-set -o vi # vi mode
-bind 'TAB:menu-complete' # If there are multiple matches for completion, Tab should cycle through them
-bind '"\eZ":menu-complete-backward' # And Shift-Tab should cycle backwards
-bind 'set show-all-if-ambiguous on' # Display a list of of the matching files
+set -o vi                                  # vi mode
+bind 'TAB:menu-complete'                   # If there are multiple matches for completion, Tab should cycle through them
+bind '"\eZ":menu-complete-backward'        # And Shift-Tab should cycle backwards
+bind 'set show-all-if-ambiguous on'        # Display a list of of the matching files
 bind 'set menu-complete-display-prefix on' # Perform partial compeltion on the first Tab press, only start cycling full results on the second Tab press
-bind 'set colored-completion-prefix on' 
-bind 'set colored-stats on' 
-bind 'set completion-ignore-case on' 
+bind 'set colored-completion-prefix on'
+bind 'set colored-stats on'
+bind 'set completion-ignore-case on'
 # Cycle through history based on characters already typed on the line
 bind '"\C-k":history-search-backward'
 bind '"\C-j":history-search-forward'
@@ -31,9 +31,9 @@ EDITOR="vim"
 export PATH="~/.ghcup/bin:$PATH"
 
 # Start SSH agent automatically
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-  ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+if ! pgrep -u "$USER" ssh-agent >/dev/null; then
+  ssh-agent -t 1h >"$XDG_RUNTIME_DIR/ssh-agent.env"
 fi
 if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
-  source "$XDG_RUNTIME_DIR/ssh-agent.env" > /dev/null
+  source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
