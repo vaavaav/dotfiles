@@ -1,105 +1,81 @@
-vim.o.ignorecase = true                                                 -- if true, ignore case in search patterns
-vim.o.relativenumber = true                                             -- if true, show relative line numbers
-vim.o.number = true                                                     -- if true, show absolute line numbers
-vim.o.shiftwidth = 2                                                    -- number of spaces to use for each step of (auto)indent
-vim.o.smarttab = true                                                   -- if true, insert indents automatically
-vim.o.expandtab = true                                                  -- if true, convert tabs to spaces
-vim.o.hlsearch = true                                                   -- if true, highlight search results
-vim.g.mapleader = " "                                                   -- set leader key
-vim.o.termguicolors = true                                              -- if true, use 24-bit RGB colors in the terminal
+----------------------------------------------------------------------------------------
+-- General settings
+----------------------------------------------------------------------------------------
+vim.o.ignorecase = true                                        -- if true, ignore case in search pattern
+vim.o.relativenumber = true                                    -- if true, show relative line numbers
+vim.o.shiftwidth = 2                                           -- number of spaces to use for each step of (auto)indent
+vim.o.smarttab = true                                          -- if true, insert indents automatically
+vim.o.expandtab = true                                         -- if true, convert tabs to spaces
+vim.o.hlsearch = true                                          -- if true, highlight search results
+vim.g.mapleader = " "                                          -- set leader key
+vim.g.maplocalleader = "\\"
+vim.o.termguicolors = true                                     -- if true, use 24-bit RGB colors in the terminal
 
-vim.keymap.set("n", "<CR>", ":noh<CR><CR>", { silent = true })          -- Clear search highlights after pressing enter
-vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true }) -- Toggle file explorer
-vim.keymap.set("n", "<C-f>", ":FZF<CR>", { noremap = true })            -- Fuzzy finder
-vim.keymap.set({ "n", "v" }, "<Leader>p", '"_dP')                       -- copy and paste without yanking
--- Smoother navigation
+vim.keymap.set("n", "<CR>", ":noh<CR><CR>", { silent = true }) -- Clear search highlights after pressing enter
+vim.keymap.set({ "n", "v" }, "<Leader>p", '"_dP')              -- copy and paste without yanking
 vim.keymap.set({ "n", "v" }, "<c-u>", "<c-u>zz")
 vim.keymap.set({ "n", "v" }, "<c-d>", "<c-d>zz")
 vim.keymap.set({ "n", "v" }, "n", "nzz")
 vim.keymap.set({ "n", "v" }, "N", "Nzz")
--- Tmux navigation
-vim.keymap.set("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>")
-vim.keymap.set("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>")
-vim.keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
-vim.keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
--- Copilot
-vim.g.copilot_no_tab_map = true                                                                                  -- if true, do not map <Tab> in insert mode
-vim.keymap.set("i", "<C-l>", 'copilot#Accept("<CR>")', { silent = true, expr = true, replace_keycodes = false }) -- Accept copilot suggestion
--- Format on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-  buffer = buffer,
-  callback = function()
-    vim.lsp.buf.format({ async = false })
-  end,
-})
-
--- Plugins
-require("packer").startup(function(use)
-  use("wbthomason/packer.nvim") -- Packer can manage itself
-  -- LSP
-  use({
-    "VonHeikemen/lsp-zero.nvim",
-    branch = "v1.x",
-    requires = {
-      -- LSP Support
-      { "neovim/nvim-lspconfig" },
-      { "williamboman/mason.nvim" },
-      { "williamboman/mason-lspconfig.nvim" },
-
-      -- copilot
-      { "github/copilot.vim" },
-
-      -- Autocompletion
-      { "hrsh7th/nvim-cmp" },
-      { "hrsh7th/cmp-nvim-lsp" },
-      { "hrsh7th/cmp-buffer" },
-      { "hrsh7th/cmp-path" },
-      { "saadparwaiz1/cmp_luasnip" },
-      { "hrsh7th/cmp-nvim-lua" },
-
-      -- Snippets
-      { "L3MON4D3/LuaSnip" },             -- Required
-      { "rafamadriz/friendly-snippets" }, -- Optional
-    },
-    config = function()
-      local lsp_zero = require("lsp-zero").preset({
-        name = "minimal",
-        set_lsp_keymaps = true,
-        manage_nvim_cmp = true,
-        suggest_lsp_servers = false
-      })
-      lsp_zero.nvim_workspace()
-      lsp_zero.ensure_installed({
-        "ansiblels",
-        "cmake",
-        "clangd",
-        "dhall_lsp_server",
-        "elixirls",
-        "grammarly",
-        "jsonls",
-        "ltex",
-        "rust_analyzer",
-        "texlab",
-        "yamlls",
-      })
-      lsp_zero.setup()
-    end,
-  })
-  -- Tmux
-  use({
-    "christoomey/vim-tmux-navigator",
-    lazy = false,
-  })
-  use("nvim-tree/nvim-web-devicons") -- Icons
-  -- Theme
-  use({
+----------------------------------------------------------------------------------------
+-- Bootstrap lazy
+----------------------------------------------------------------------------------------
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out,                            "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
+----------------------------------------------------------------------------------------
+-- Setup lazy and plugins
+----------------------------------------------------------------------------------------
+require("lazy").setup({
+  {
     "rebelot/kanagawa.nvim",
     config = function()
-      require('kanagawa').load("wave")
+      vim.cmd("colorscheme kanagawa")
+    end,
+  },
+  { "nvim-tree/nvim-web-devicons" },
+  {
+    "junegunn/fzf",
+    config = function()
+      vim.keymap.set("n", "<C-f>", ":FZF<CR>", { noremap = true })
+    end,
+  },
+  { "jinh0/eyeliner.nvim" },
+  {
+    "goolord/alpha-nvim",
+    config = function()
+      require("alpha").setup(require("alpha.themes.startify").config)
+    end,
+  },
+  {
+    'dgagn/diagflow.nvim',
+    config = function()
+      require('diagflow').setup()
     end
-  })
-  -- Bottom Status line
-  use({
+  },
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+    config = function()
+      vim.keymap.set("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>")
+      vim.keymap.set("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>")
+      vim.keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
+      vim.keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
+    end,
+  },
+  {
     "nvim-lualine/lualine.nvim",
     config = function()
       require('lualine').setup {
@@ -118,17 +94,8 @@ require("packer").startup(function(use)
         }
       }
     end,
-  })
-  use("junegunn/fzf") -- Fuzzy finder
-  -- Diagnostics with virtual text on the top right corner
-  use({
-    'dgagn/diagflow.nvim',
-    config = function()
-      require('diagflow').setup()
-    end
-  })
-  -- File explorer
-  use({
+  },
+  {
     "nvim-tree/nvim-tree.lua",
     config = function()
       require("nvim-tree").setup({
@@ -146,22 +113,89 @@ require("packer").startup(function(use)
           git_ignored = false,
         },
       })
+      vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
     end,
-  })
-  -- Terminal in neovim
-  use({
+  },
+  {
     "akinsho/toggleterm.nvim",
-    tag = "*",
+    version = "*",
     config = function()
       require("toggleterm").setup()
     end,
-  })
-  use 'mg979/vim-visual-multi' -- Multiple cursors
-  -- alpha-nvim
-  use({
-    "goolord/alpha-nvim",
+  },
+  -- LSP
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v4.x",
+    dependencies = {
+      -- LSP Support
+      { "neovim/nvim-lspconfig" },
+      { "williamboman/mason.nvim" },
+      { "williamboman/mason-lspconfig.nvim" },
+
+      -- copilot
+      -- {
+      --   "github/copilot.vim",
+      --   config = function()
+      --     vim.g.copilot_no_tab_map = true
+      --     vim.keymap.set("i", "<C-l>", 'copilot#Accept("<CR>")', { silent = true, expr = true, replace_keycodes = false }) -- Accept copilot suggestion
+      --   end,
+      -- },
+
+      -- Snippets
+      { "L3MON4D3/LuaSnip" },
+
+      -- Autocompletion
+      { "hrsh7th/nvim-cmp" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "hrsh7th/cmp-buffer" },
+      { "hrsh7th/cmp-path" },
+      { "saadparwaiz1/cmp_luasnip" },
+      { "hrsh7th/cmp-nvim-lua" },
+    },
     config = function()
-      require("alpha").setup(require("alpha.themes.startify").config)
+      local lsp_zero = require('lsp-zero')
+
+      local lsp_attach = function(client, bufnr)
+        lsp_zero.default_keymaps({ buffer = bufnr, perserve_mappings = false })
+      end
+
+      lsp_zero.extend_lspconfig({
+        lsp_attach = lsp_attach,
+        set_lsp_keymaps = true,
+      })
+
+      require('mason').setup({})
+      require('mason-lspconfig').setup({
+        handlers = {
+          function(server_name)
+            require('lspconfig')[server_name].setup({})
+          end,
+        }
+      })
+
+      local cmp = require('cmp')
+
+      cmp.setup({
+        sources = {
+          { name = 'nvim_lsp' },
+        },
+        snippet = {
+          expand = function(args)
+            -- You need Neovim v0.10 to use vim.snippet
+            vim.snippet.expand(args.body)
+          end,
+        },
+        mapping = cmp.mapping.preset.insert({}),
+      })
+
+      -- format on save
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = buffer,
+        callback = function()
+          vim.lsp.buf.format({ async = false })
+        end,
+      })
     end,
-  })
-end)
+  },
+})
