@@ -1,8 +1,10 @@
+local vim = vim
 ----------------------------------------------------------------------------------------
 -- General settings
 ----------------------------------------------------------------------------------------
 vim.o.ignorecase = true                                        -- if true, ignore case in search pattern
 vim.o.relativenumber = true                                    -- if true, show relative line numbers
+vim.o.number = true                                            -- if true, show absolute line numbers
 vim.o.shiftwidth = 2                                           -- number of spaces to use for each step of (auto)indent
 vim.o.smarttab = true                                          -- if true, insert indents automatically
 vim.o.expandtab = true                                         -- if true, convert tabs to spaces
@@ -12,11 +14,24 @@ vim.g.maplocalleader = "\\"
 vim.o.termguicolors = true                                     -- if true, use 24-bit RGB colors in the terminal
 
 vim.keymap.set("n", "<CR>", ":noh<CR><CR>", { silent = true }) -- Clear search highlights after pressing enter
-vim.keymap.set({ "n", "v" }, "<Leader>p", '"_dP')              -- copy and paste without yanking
-vim.keymap.set({ "n", "v" }, "<c-u>", "<c-u>zz")
-vim.keymap.set({ "n", "v" }, "<c-d>", "<c-d>zz")
-vim.keymap.set({ "n", "v" }, "n", "nzz")
-vim.keymap.set({ "n", "v" }, "N", "Nzz")
+vim.keymap.set({ "n", "v" }, "p", '"0p')                       -- paste only from the yank register (not overwritten by delete)
+vim.keymap.set({ "n", "v" }, "<c-u>", "<c-u>zz")               -- center after scrolling up
+vim.keymap.set({ "n", "v" }, "<c-d>", "<c-d>zz")               -- center after scrolling down
+vim.keymap.set({ "n", "v" }, "n", "nzz")                       -- center after jumping to next match
+vim.keymap.set({ "n", "v" }, "N", "Nzz")                       -- center after jumping to previous match
+vim.keymap.set("n", "nd", function() vim.diagnostic.goto_next({ float = false }) end)
+vim.keymap.set("n", "np", function() vim.diagnostic.goto_prev({ float = false }) end)
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "",
+    }
+  }
+})
 ----------------------------------------------------------------------------------------
 -- Bootstrap lazy
 ----------------------------------------------------------------------------------------
@@ -58,12 +73,6 @@ require("lazy").setup({
     config = function()
       require("alpha").setup(require("alpha.themes.startify").config)
     end,
-  },
-  {
-    'dgagn/diagflow.nvim',
-    config = function()
-      require('diagflow').setup()
-    end
   },
   {
     "christoomey/vim-tmux-navigator",
@@ -123,6 +132,21 @@ require("lazy").setup({
       require("toggleterm").setup()
     end,
   },
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("tiny-inline-diagnostic").setup({
+        signs = {
+          diag = "",
+        },
+        options = {
+          show_all_diags_on_cursorline = true,
+        },
+      })
+      vim.keymap.set("n", "<leader>td", "<cmd>lua require('tiny-inline-diagnostic').toggle()<CR>")
+    end,
+  },
   -- LSP
   {
     "VonHeikemen/lsp-zero.nvim",
@@ -134,13 +158,13 @@ require("lazy").setup({
       { "williamboman/mason-lspconfig.nvim" },
 
       -- copilot
-      -- {
-      --   "github/copilot.vim",
-      --   config = function()
-      --     vim.g.copilot_no_tab_map = true
-      --     vim.keymap.set("i", "<C-l>", 'copilot#Accept("<CR>")', { silent = true, expr = true, replace_keycodes = false }) -- Accept copilot suggestion
-      --   end,
-      -- },
+      {
+        "github/copilot.vim",
+        config = function()
+          vim.g.copilot_no_tab_map = true
+          vim.keymap.set("i", "<C-l>", 'copilot#Accept("<CR>")', { silent = true, expr = true, replace_keycodes = false }) -- Accept copilot suggestion
+        end,
+      },
 
       -- Snippets
       { "L3MON4D3/LuaSnip" },
@@ -156,7 +180,7 @@ require("lazy").setup({
     config = function()
       local lsp_zero = require('lsp-zero')
 
-      local lsp_attach = function(client, bufnr)
+      local lsp_attach = function(_, bufnr)
         lsp_zero.default_keymaps({ buffer = bufnr, perserve_mappings = false })
       end
 
@@ -191,9 +215,9 @@ require("lazy").setup({
 
       -- format on save
       vim.api.nvim_create_autocmd("BufWritePre", {
-        buffer = buffer,
         callback = function()
           vim.lsp.buf.format({ async = false })
+          vim.diagnostic.enable(vim.diagnostic.is_enabled())
         end,
       })
     end,

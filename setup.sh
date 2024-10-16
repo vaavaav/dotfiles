@@ -1,5 +1,5 @@
 #!/bin/bash
-PACKAGES="alsa-utils bluez-git bluez-utils dkms font-manager ghcup-hs-bin lightdm lightdm-gtk-greeter linux-headers neovim nvim-packer-git pavucontrol polybar ttf-material-design-icons-webfont xorg-server xorg-xinit noto-fonts-cjk alacritty arandr biber bitwarden brightnessctl cargo clang cmake discord elixir feh firefox flameshot fzf gcc ghc gnome-keyring i3-wm inter-font man-db mupdf neofetch neovim-web-devicons-git network-manager-applet networkmanager-openvpn-git noisetorch noto-fonts-emoji oh-my-bash-git openssh-askpass openvpn picom playerctl pulseaudio-bluetooth rofi rustup shfmt spotify stremio texlive-basic texlive-bibtexextra texlive-fontsextra texlive-fontsrecommended texlive-langportuguese texlive-latex texlive-latexextra texlive-latexrecommended texlive-luatex texlive-mathscience texlive-plaingeneric thunderbird tmux tmux-plugin-manager ttf-iosevka typst unzip vim visual-studio-code-bin wget xclip zotero xorg-xwininfo nerd-fonts-git"
+PACKAGES="alsa-utils bluez-git bluez-utils cups dkms font-manager ghcup-hs-bin lightdm lightdm-gtk-greeter linux-headers neovim nvim-packer-git pavucontrol polybar system-config-printer ttf-material-design-icons-webfont xorg-server xorg-xinit noto-fonts-cjk alacritty arandr biber bitwarden brightnessctl cargo clang cmake discord elixir feh firefox flameshot fzf gcc ghc gnome-keyring i3-wm inter-font man-db mupdf neofetch neovim-web-devicons-git network-manager-applet networkmanager-openvpn-git noisetorch noto-fonts-emoji oh-my-bash-git openssh-askpass openvpn picom playerctl pulseaudio-bluetooth rofi rustup shfmt spotify stremio texlive-basic texlive-bibtexextra texlive-fontsextra texlive-fontsrecommended texlive-langportuguese texlive-latex texlive-latexextra texlive-latexrecommended texlive-luatex texlive-mathscience texlive-plaingeneric thunderbird tmux tmux-plugin-manager ttf-iosevka typst unzip vim visual-studio-code-bin wget xclip zotero xorg-xwininfo nerd-fonts-git autenticacao-gov-pt-bin"
 
 # Check if yay is already installed
 if ! command -v yay &>/dev/null; then
@@ -32,7 +32,7 @@ done
 echo "Configuring git..."
 git config set user.name "vaavaav"
 git config set user.email "the.jprp@gmail.com"
-git config set core.editor vim
+git config set core.editor nvim
 git config set init.defaultBranch main
 
 echo "Setting up GHC..."
@@ -41,6 +41,5 @@ ghcup install cabal recommended --set
 ghcup install stack recommended --set
 ghcup install hls recommended --set
 cabal update
-cabal new-configure --disable-library-vanilla --enable-shared --enable-executable-dynamic --ghc-options=-dynamic
 
 echo "Finished setup."

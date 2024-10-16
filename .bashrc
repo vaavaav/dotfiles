@@ -28,7 +28,7 @@ VISUAL="vim"
 EDITOR="vim"
 
 # GHC
-export PATH="~/.ghcup/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 
 # Start SSH agent automatically
 if ! pgrep -u "$USER" ssh-agent >/dev/null; then
